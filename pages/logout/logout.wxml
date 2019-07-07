@@ -1,0 +1,3 @@
+<view class='container'>
+<button bindtap="tip" class='button'>退出登录</button>
+</view>
