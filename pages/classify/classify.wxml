@@ -1,2 +1,18 @@
-<!--pages/classify/classify.wxml-->
-<text>分类</text>
+<view class='classify'>
+  <view class='leftMenu'>
+    <view wx:for="{4}" wx:key="{item.id}" class='menuItem'>热门</view>
+  </view>
+  <view class='rightContent'>
+    <view class='image'>
+      <image src='/images/back.png'></image>
+    </view>
+    <view wx:for="{3}" wx:key="{item.id}">
+      <view class='title'> —— title ——</view>
+      <view>
+        <view class='item'>
+          <view wx:for="{4}" wx:key="{index}" class='itemName'>hello</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

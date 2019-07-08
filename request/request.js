@@ -9,7 +9,7 @@ const request = (url, method, data) => {
       data: data,
       header: {
         'Content-Type': 'application/json',
-        'X-Nideshop-Token': wx.getStorageSync('token')
+        'X-Nideshop-Token': wx.getStorageSync('userToken')
       },
       success(res) {
         if (res.statusCode == 200){

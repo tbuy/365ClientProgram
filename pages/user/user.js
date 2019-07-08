@@ -73,15 +73,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log(wx.getStorageSync('userToken'))
     if (wx.getStorageSync('userToken')) {
 
       let _data = {
         id: wx.getStorageSync('userToken').id,
-        access_token: wx.getStorageSync('userToken').access_token
       }
       request.request(apiPath.getUser, 'GET', _data).then(val => {
 
-        console.log(111)
+        console.log(val.data)
       }).catch(e => {
         console.log(222)
         throw Error

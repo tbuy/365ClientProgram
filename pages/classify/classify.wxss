@@ -1,1 +1,46 @@
-/* pages/classify/classify.wxss */
+.classify{
+  display: flex;
+  
+}
+.leftMenu {
+  width: 200rpx;
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+.menuItem{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+
+}
+.rightContent {
+    padding: 20rpx;
+  box-sizing: border-box;
+}
+image {
+    width: 500rpx;
+  height: 140rpx;
+  background-color: pink;
+}
+.title {
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+}
+.item {
+  display: flex;
+  padding: 0 20rpx;
+}
+.itemName {
+  padding: 10rpx 20rpx;
+  background-color: #ccc;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+.select {
+  background-color: #fff;
+  color: red;
+}

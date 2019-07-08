@@ -1,18 +1,25 @@
-// pages/classify/classify.js
+const request = require('../../request/request.js');
+const apiPath = require('../../config/apiPath.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:[],
+    isSelect: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    return request.request(apiPath.getCategory, 'GET', {}).then(val=>{
+      this.setData({
+        list: val.data
+      })
+    })
   },
 
   /**
