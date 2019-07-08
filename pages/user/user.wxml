@@ -1,9 +1,13 @@
 <view class='userPage'>
   <view class='topContainer'>
-    <view class='image'></view>
+    <view class='image'>
+    <image class="avatar-image public_avatar" src="/images/avatar.jpg"></image></view>
     <view class='name' bindtap='login'>
       <text>{{isLogin? userName : "请点击登录"}}</text>
       <view class='account' wx:if="{{isLogin}}" bindtap='logout'>账号管理</view>
+      <view class='edit' bindtap='edit'>
+        <image src="/images/enter.png" class="edit-icon" wx:if="{{isLogin}}"></image>
+      </view>
     </view>
   </view>
   <view class='bottomContainer'>

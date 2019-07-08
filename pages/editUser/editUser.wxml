@@ -1,0 +1,15 @@
+<view>
+  <view class='public avatar'>
+    <text>头像</text>
+    <image class="avatar-image public_avatar" src="/images/avatar.jpg"></image>
+  </view>
+  <view class='public'>
+    <text>昵称</text>
+    <input placeholder="请输入昵称" auto-focus maxlength="10" type="text" placeholder-style="color:#ccc" value="{{nickname}}" bindinput='nicknameInput' />
+  </view>
+  <view class='public'>
+    <text>性别</text>
+    <input placeholder="请输入性别" auto-focus maxlength="1" type="text" placeholder-style="color:#ccc" value="{{sex}}" bindinput='sexInput' />
+  </view>
+  <view class='public_button_big btn' bindtap="save">保存</view>
+</view>

@@ -1,11 +1,57 @@
-// pages/myOrder/myOrder.js
-Page({
+const request = require('../../request/request.js');
+
+Page(request.loginCheck({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    tab:[
+      {
+        id: 1,
+        title: "全部",
+        isHeightlight: true
+      },
+      {
+        id: 2,
+        title: "待确认",
+        isHeightlight: false
+      },
+      {
+        id: 3,
+        title: "待服务",
+        isHeightlight: false
+      },
+      {
+        id: 4,
+        title: "待支付",
+        isHeightlight: false
+      },
+      {
+        id: 5,
+        title: "待评价",
+        isHeightlight: false
+      },
+    ],
+    data: {
+      listId: 1,
+      list:[
+        {
+          id: 1,
+          title:'保姆',
+          time: '2019.04.05 —— 2019.07.04',
+          address: '沈阳国际软件园',
+          image: ''
+        },
+        {
+          id: 2,
+          title: '保姆',
+          time: '2019.04.05 —— 2019.07.04',
+          address: '沈阳国际软件园',
+          image: ''
+        }
+      ]
+    }
   },
 
   /**
@@ -63,4 +109,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+}))

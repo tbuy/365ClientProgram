@@ -1,0 +1,26 @@
+
+
+.public {
+  display: flex;
+  justify-content: space-between;
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #ccc;
+}
+.avatar {
+  height: 200rpx;
+  line-height: 200rpx;
+}
+.avatar-image {
+  margin-top: 50rpx;
+}
+input {
+  text-align: right;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.btn {
+  margin-top: 100rpx;
+}

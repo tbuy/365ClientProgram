@@ -1,1 +1,25 @@
-/* pages/myAddress/myAddress.wxss */
+
+
+.list {
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #ccc;
+}
+.address {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.name {
+  font-size: 26rpx;
+  color: #ccc;
+}
+image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 35rpx;
+}
+.btn {
+  margin-top: 50rpx;
+}

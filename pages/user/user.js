@@ -35,7 +35,7 @@ Page({
       return false;
     }
     wx.navigateTo({
-      url: '/pages/WXlogin/WXlogin',
+      url: '/pages/mobileLogin/mobileLogin',
     })
   },
   goItem(e) {
@@ -47,6 +47,11 @@ Page({
   logout(){
     wx.navigateTo({
       url: '/pages/logout/logout',
+    })
+  },
+  edit(){
+    wx.navigateTo({
+      url: '/pages/editUser/editUser',
     })
   },
   /**

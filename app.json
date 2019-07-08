@@ -7,7 +7,8 @@
     "pages/mobileLogin/mobileLogin",
     "pages/myOrder/myOrder",
     "pages/myAddress/myAddress",
-    "pages/logout/logout"
+    "pages/logout/logout",
+    "pages/editUser/editUser"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,30 +17,35 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#dadada",
-    "selectedColor": "#09bb07",
+    "color": "#666",
+    "selectedColor": "#b4282d",
     "backgroundColor": "#fff",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "",
-        "selectIconPath": ""
+        "iconPath": "/images/un_home.png",
+        "selectedIconPath": "/images/home.png"
       },
       {
         "pagePath": "pages/classify/classify",
         "text": "分类",
-        "iconPath": "",
-        "selectIconPath": ""
+        "iconPath": "/images/un_menu.png",
+        "selectedIconPath": "/images/menu.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "我的",
-        "iconPath": "",
-        "selectIconPath": ""
+        "iconPath": "/images/un_user.png",
+        "selectedIconPath": "images/user.png"
       }
     ]
   },
+    "networkTimeout": {
+      "request": 10000,
+      "downloadFile": 10000
+    },
+    "debug": true,
   "sitemapLocation": "sitemap.json"
 }

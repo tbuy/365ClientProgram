@@ -9,5 +9,5 @@
 <view class='input'>
 <input placeholder="请输入验证码" auto-focus maxlength="6" type="text" placeholder-style="color:#ccc" value="{{captcha}}" bindinput='captchaInput'/>
 </view>
-<button class='login' bindtap="login">登录</button>
+<button class='public_button_big' bindtap="login">登录</button>
 </view>

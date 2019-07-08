@@ -8,3 +8,22 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.public_button_big {
+  width: 80%;
+  border: 0 none;
+  background-color: rgb(240, 178, 46);
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 16rpx;
+  margin: 0 auto;
+}
+
+.public_avatar {
+    width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}

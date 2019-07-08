@@ -1,27 +1,15 @@
-const request = require('../../request/request.js');
-
-Page(request.loginCheck({
+// pages/editUser/editUser.js
+Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        id:1,
-        address: "沈阳市铁西区",
-        name: "哇哈哈",
-        phone: 13948496723
-        },
-      {
-        id: 2,
-        address: "沈阳市铁西区",
-        name: "哇哈哈",
-        phone: 13948496723
-      }
-    ]
-  },
 
+  },
+  save(){
+    wx.navigateBack()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -77,4 +65,4 @@ Page(request.loginCheck({
   onShareAppMessage: function () {
 
   }
-}))
+})

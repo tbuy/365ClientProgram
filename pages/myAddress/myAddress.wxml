@@ -1,2 +1,11 @@
-<!--pages/myAddress/myAddress.wxml-->
-<text>pages/myAddress/myAddress.wxml</text>
+<view>
+  <view class='list' wx:for="{{list}}" wx:key="item.id">
+    <view>
+      <view class='address'>{{item.address}}</view>
+      <view class='name'>{{item.name + item.phone}}</view>
+    </view>
+    <image src='/images/enter.png'></image>
+  </view>
+
+  <view bindtap='add' class="public_button_big btn">新增地址</view>
+</view>
