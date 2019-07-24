@@ -1,6 +1,6 @@
 const request = require('../../request/request.js');
 
-Page(request.loginCheck({
+Page({
 
   /**
    * 页面的初始数据
@@ -77,4 +77,4 @@ Page(request.loginCheck({
   onShareAppMessage: function () {
 
   }
-}))
+})
