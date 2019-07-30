@@ -8,9 +8,14 @@ Page({
    */
   data: {
     list:[],
-    isSelect: true
+    isSelect: true,
+    selectIndex: 0
   },
-
+  selectList(e){
+    this.setData({
+      selectIndex: e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,6 +24,8 @@ Page({
       this.setData({
         list: val.data
       })
+    }).catch(e=>{
+      throw Error;
     })
   },
 
