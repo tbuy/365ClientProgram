@@ -1,5 +1,6 @@
 const request = require('../../request/request.js');
 const apiPath = require('../../config/apiPath.js');
+const app = getApp();
 Page({
 
   /**
@@ -30,6 +31,17 @@ Page({
     isLogin: false,
     userName: '宋同学'
   },
+  bindGetUserInfo(e) {
+
+    if (e.detail.encryptedData) {
+      app.globalGetUserInfo(e)
+      wx.navigateTo({
+        url: '/pages/mobileLogin/mobileLogin',
+      })
+    }else{
+      app.showInfo('您已拒绝授权，请重新点击并登录')
+    }
+  },
   login() {
     if (this.data.isLogin) {
       return false;
@@ -44,12 +56,12 @@ Page({
     })
 
   },
-  logout(){
+  logout() {
     wx.navigateTo({
       url: '/pages/logout/logout',
     })
   },
-  edit(){
+  edit() {
     wx.navigateTo({
       url: '/pages/editUser/editUser',
     })
@@ -58,7 +70,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
 
   },
 
