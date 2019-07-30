@@ -74,23 +74,23 @@ Page({
    */
   onShow: function () {
     console.log(wx.getStorageSync('userToken'))
-    if (wx.getStorageSync('userToken')) {
+    // if (wx.getStorageSync('userToken')) {
 
-      let _data = {
-        id: wx.getStorageSync('userToken').id,
-      }
-      request.request(apiPath.getUser, 'GET', _data).then(val => {
+    //   let _data = {
+    //     id: wx.getStorageSync('userToken').id,
+    //   }
+    //   request.request(apiPath.getUser, 'GET', _data).then(val => {
 
-        console.log(val.data)
-      }).catch(e => {
-        console.log(222)
-        throw Error
-      })
+    //     console.log(val.data)
+    //   }).catch(e => {
+    //     console.log(222)
+    //     throw Error
+    //   })
 
-      this.setData({
-        isLogin: true
-      })
-    }
+    //   this.setData({
+    //     isLogin: true
+    //   })
+    // }
   },
 
   /**
