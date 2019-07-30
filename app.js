@@ -22,13 +22,14 @@ App({
   globalLogin(phone, captcha, callback = () => {}) {
     wx.login({
       success: (loginRes) => {
+        console.log('loginRes', loginRes)
         if (loginRes.code) {
           /**
-           * 获取用户信息
+           * 获取用户信息(用户已经授权的情况下才能调用)
            * 
            */
           wx.getUserInfo({
-            withCredentials: true,
+            withCredentials: false,
             success: (infoRes) => {
               /**
                * 服务器登录接口

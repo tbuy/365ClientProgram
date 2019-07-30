@@ -1,5 +1,6 @@
 const request = require('../../request/request.js');
 const apiPath = require('../../config/apiPath.js');
+let app = getApp();
 
 Page({
   data: {
@@ -7,6 +8,18 @@ Page({
     captcha: "",
     time: 60,
     isShowTime: false,
+  },
+  formSubmit(e) {
+    app.showInfo('111')
+    if (e.detail.value.phone == '') {
+      app.showInfo('请输入手机号')
+    } else if (e.detail.value.captcha == '') {
+      app.showInfo('请输入验证码')
+    } else {
+      // app.globalLogin(e.detail.value.phone, e.detail.value.captcha)
+      app.globalLogin(17602458800, 111111)
+
+    }
   },
   getCode() {
     if (this.data.isShowTime) {
