@@ -1,5 +1,3 @@
-const request = require('../../request/request.js');
-const apiPath = require('../../config/apiPath.js');
 const app = getApp();
 Page({
 
@@ -10,11 +8,11 @@ Page({
     menuList: [{
       id: 1,
       title: '我的地址',
-      router: '/pages/myAddress/myAddress'
+      router: ''
     }, {
       id: 2,
       title: '我的订单',
-      router: '/pages/myOrder/myOrder'
+      router: ''
     }, {
       id: 3,
       title: '我的合同',
@@ -31,8 +29,8 @@ Page({
     isLogin: false,
     userName: '宋同学'
   },
+  //获取用户信息
   bindGetUserInfo(e) {
-
     if (e.detail.encryptedData) {
       app.globalGetUserInfo(e)
       wx.navigateTo({
@@ -42,25 +40,25 @@ Page({
       app.showInfo('您已拒绝授权，请重新点击并登录')
     }
   },
-  login() {
-    if (this.data.isLogin) {
-      return false;
-    }
-    wx.navigateTo({
-      url: '/pages/mobileLogin/mobileLogin',
-    })
-  },
+  //跳页
   goItem(e) {
-    wx.navigateTo({
-      url: e.currentTarget.dataset.router,
-    })
+    if (e.currentTarget.dataset.router) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.router,
+      })
+    }else {
+      app.showInfo('敬请期待')
+    }
+
 
   },
+  //退出登录
   logout() {
     wx.navigateTo({
       url: '/pages/logout/logout',
     })
   },
+  //编辑资料
   edit() {
     wx.navigateTo({
       url: '/pages/editUser/editUser',
@@ -85,24 +83,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(wx.getStorageSync('userToken'))
-    // if (wx.getStorageSync('userToken')) {
 
-    //   let _data = {
-    //     id: wx.getStorageSync('userToken').id,
-    //   }
-    //   request.request(apiPath.getUser, 'GET', _data).then(val => {
-
-    //     console.log(val.data)
-    //   }).catch(e => {
-    //     console.log(222)
-    //     throw Error
-    //   })
-
-    //   this.setData({
-    //     isLogin: true
-    //   })
-    // }
   },
 
   /**

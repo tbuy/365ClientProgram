@@ -26,9 +26,8 @@ image {
 .title {
   line-height: 100rpx;
   text-align: center;
-  font-size: 34rpx;
+  font-size: 40rpx;
   margin-top: 30rpx;
-  color: #ccc;
 }
 .item {
   display: flex;
@@ -40,7 +39,6 @@ image {
   font-size: 30rpx;
   margin-right: 20rpx;
   border-radius: 10rpx;
-  color: #fff;
 }
 .select {
   background-color: #fff;
