@@ -1,7 +1,10 @@
 const apiPath = require('./config/apiPath.js');
 App({
-  onLaunch: () => {
-
+  onLaunch: function () {
+    let that = this;
+    that.checkLogin();
+    that.checkUserInfoPermission(); 
+    console.log(11,wx.getStorageSync('isLogin'))
   },
   //消息框
   showInfo: (title = "error", icon = "none") => {
@@ -12,6 +15,31 @@ App({
       mask: true
 
     })
+  },
+  //模态框
+  showModal: (content = "消息框", confirm=()=>{},cancel=()=>{})=>{
+    wx.showModal({
+      content: content,
+      success(res) {
+        if (res.confirm) {
+          confirm()
+        } else if (res.cancel) {
+          cancel()
+        }
+      }
+    })
+  },
+  //loading
+  showLoading: (title = "加载中")=>{
+    wx.showLoading({
+      title: title
+    })
+
+  },
+  hideLoading:(time=2000)=>{
+    setTimeout(()=> {
+      wx.hideLoading()
+    }, time)
   },
   //获取用户授权信息
   globalGetUserInfo(e) {
@@ -89,25 +117,27 @@ App({
           // 直接从Storage中获取用户信息
           if (wx.getStorageSync('userInfo')) {
             this.globalData.userInfo = JSON.parse(wx.getStorageSync('userInfo'));
-            return true;
+            wx.setStorageSync('isLogin', true);
           } else {
             this.showInfo('缓存信息缺失');
-            return false;
+            wx.setStorageSync('isLogin', false);
           }
 
         },
         // session_key 过期
         fail: () => {
-          return false;
+          this.showInfo('缓存信息缺失');
+          wx.setStorageSync('isLogin', false);
         }
       });
     } else {
-      return false;
+      this.showInfo('缓存信息缺失');
+      wx.setStorageSync('isLogin', false);
     }
 
   },
   //检查是否开启权限
-  checkUserInfoPermission(callback = () => { }) {
+  checkUserInfoPermission() {
     console.log(99999)
     //获取用户的当前设置
     wx.getSetting({
@@ -115,13 +145,13 @@ App({
         if (!res.authSetting['scope.userInfo']) {
           wx.openSetting({
             success: (authSetting) => {
-              console.log(authSetting)
+              console.log(22,authSetting)
             }
           });
         }
       },
       fail: (err) => {
-        console.log(err);
+        console.log(33,err);
       }
     });
 
@@ -131,7 +161,6 @@ App({
     //权限详情
     detail: null,
     userInfo: null,
-
   }
 
 })
