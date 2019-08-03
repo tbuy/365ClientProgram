@@ -10,15 +10,21 @@ Page({
     isShowTime: false,
   },
   formSubmit(e) {
-    if (e.detail.value.phone == '') {
-      app.showInfo('请输入手机号')
-    } else if (e.detail.value.captcha == '') {
-      app.showInfo('请输入验证码')
+    let regPhone = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+    if (!regPhone.test(e.detail.value.phone)) {
+      app.showInfo('请输入正确手机号')
+    } else if (e.detail.value.captcha == '' || e.detail.value.captcha < 6) {
+      app.showInfo('请输入正确验证码')
     } else {
-      // app.globalLogin(e.detail.value.phone, e.detail.value.captcha)
+      // app.globalLogin(e.detail.value.phone, e.detail.value.captcha, () => {
+      //   app.showInfo('登录成功')
+      //   wx.reLaunch({
+      //     url: "/pages/user/user"
+      //   })
+      // })
       app.globalLogin(17602458800, 111111,()=>{
         app.showInfo('登录成功')
-        wx.switchTab({
+        wx.reLaunch({
           url: "/pages/user/user"
         })
       })

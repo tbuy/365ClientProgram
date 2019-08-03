@@ -6,7 +6,6 @@
     "pages/WXlogin/WXlogin",
     "pages/mobileLogin/mobileLogin",
     "pages/myOrder/myOrder",
-    "pages/myAddress/myAddress",
     "pages/logout/logout",
     "pages/editUser/editUser"
   ],

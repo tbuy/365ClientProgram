@@ -10,7 +10,7 @@
     <view class='input'>
       <input name="captcha" placeholder="请输入验证码" auto-focus maxlength="6" type="text" placeholder-style="color:#ccc" value="{{captcha}}" bindinput='captchaInput' />
     </view>
-    <button class='public_button_big' form-type="submit">登录</button>
+    <button class='public_button_big button' form-type="submit">登录</button>
   </form>
 
 </view>

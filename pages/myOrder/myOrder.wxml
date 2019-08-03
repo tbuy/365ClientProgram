@@ -1,4 +1,6 @@
 <view>
-
+<view class='tab'>
+<view wx:for="{{tab}}" class='tab-item{{item.isHeightlight?"tab-item-active":""}}' bindtap='select' data-id="{{item.id}}">{{item.title}}</view>
+</view>
 
 </view>

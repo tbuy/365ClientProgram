@@ -2,11 +2,17 @@
 
   <view class='topContainer'>
     <view class='image'>
-      <image class="avatar-image public_avatar" src="/images/avatar.jpg"></image>
+      <image class="avatar-image public_avatar" src="{{icon||'/images/avatar.jpg'}}"></image>
     </view>
     <view class='name'>
-      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='login'>请点击登录</button>
+      <button wx:if="{{!isLogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='login'>请点击登录</button>
+      <view wx:else>
+        <text>{{ userName }}</text>
+        <view class="logout" bindtap='logout'>退出登录</view>  
+      </view>
     </view>
+      <view class='iconfont icon-edit icon-color edit' wx:if="{{isLogin}}" bindtap='edit'></view>
+
   </view>
 
   <view class='bottomContainer'>

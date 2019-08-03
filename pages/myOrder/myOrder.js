@@ -1,5 +1,5 @@
-const request = require('../../request/request.js');
-
+const apiPath = require('../../config/apiPath.js');
+let app = getApp();
 Page({
 
   /**
@@ -27,11 +27,6 @@ Page({
         title: "待支付",
         isHeightlight: false
       },
-      {
-        id: 5,
-        title: "待评价",
-        isHeightlight: false
-      },
     ],
     data: {
       listId: 1,
@@ -53,7 +48,9 @@ Page({
       ]
     }
   },
-
+  select(e){
+    e.currentTarget.dataset.id
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -72,7 +69,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    try {
+      // wx.request({
+      //   url: apiPath.getOrderList,
+      //   method: 'get',
+      //   header: {
+      //     'Content-Type': 'application/json',
+      //     'accessToken': wx.getStorageSync('accessToken')
+      //   },
+      //   data: {
+      //     type: 1,
+      //     id: 1,
+      //   },
+      //   success: (res) => {
+      //     if (res.data.code == 0) {
+      //       console.log(res.data.message)
+      //     }
+      //   },
+      //   fail: (err) => {
+      //     console.log(111, err)
+      //   }
+      // })
+    }catch(e){
 
+    }
   },
 
   /**

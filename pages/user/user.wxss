@@ -17,6 +17,8 @@
 .avatar-image {
   width: 120rpx;
   height: 120rpx;
+  border-radius: 50%;
+  
 }
 .login {
   background-color: rgba(0,0,0,0);
@@ -25,7 +27,22 @@
   margin-left: 30rpx;
   margin-top: 60rpx;
 }
-
+.edit {
+  position: absolute;
+  right: 60rpx;
+  top: 60rpx;
+}
+.logout {
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  border: 1px solid #ccc;
+  color: #ccc;
+  width: 150rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+}
 
 .bottomContainer {
   width: 90%;

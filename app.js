@@ -1,10 +1,7 @@
 const apiPath = require('./config/apiPath.js');
 App({
   onLaunch: function () {
-    let that = this;
-    that.checkLogin();
-    that.checkUserInfoPermission(); 
-    console.log(11,wx.getStorageSync('isLogin'))
+  
   },
   //消息框
   showInfo: (title = "error", icon = "none") => {
@@ -41,6 +38,7 @@ App({
       wx.hideLoading()
     }, time)
   },
+
   //获取用户授权信息
   globalGetUserInfo(e) {
     this.globalData.detail = e.detail
@@ -81,9 +79,15 @@ App({
             },
             success: (res) => {
               if (res.data.code == 0) {
-                this.globalData.userInfo = res.data.data;
-                wx.setStorageSync('userInfo', JSON.stringify(res.data.data));
-                wx.setStorageSync('accessToken', JSON.stringify(res.data.data.access_token));
+                let _userInfo = {
+                  id: res.data.data.id,
+                  name: res.data.data.name,
+                  icon: res.data.data.icon,
+                  phone: res.data.data.phone
+                };
+                wx.setStorageSync('userInfo', JSON.stringify(_userInfo));
+                wx.setStorageSync('accessToken', res.data.data.access_token);
+                wx.setStorageSync('isLogin', true);
                 callback();
               }
 
@@ -118,8 +122,10 @@ App({
           if (wx.getStorageSync('userInfo')) {
             this.globalData.userInfo = JSON.parse(wx.getStorageSync('userInfo'));
             wx.setStorageSync('isLogin', true);
+            console.log('已登录')
           } else {
             this.showInfo('缓存信息缺失');
+            console.log(1)
             wx.setStorageSync('isLogin', false);
           }
 
@@ -127,11 +133,12 @@ App({
         // session_key 过期
         fail: () => {
           this.showInfo('缓存信息缺失');
+          console.log(2)
           wx.setStorageSync('isLogin', false);
         }
       });
     } else {
-      this.showInfo('缓存信息缺失');
+      console.log(3)
       wx.setStorageSync('isLogin', false);
     }
 

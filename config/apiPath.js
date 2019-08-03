@@ -7,16 +7,9 @@ module.exports = {
     //登录 post {phone,captcha}
     login: apiPath + "/user/login",
 
-    //刷新token post {refreshToken}
-    changeToken: apiPath + "/user/changeToken",
 
 
-
-
-    //获取用户信息 get {id}
-    getUser: apiPath + "/user/personal/getUser",
-
-    //编辑用户信息 post {form}
+    //编辑用户信息 post {id,name}
     editUser: apiPath + "/user/personal/editUser",
 
     //上传头像 post {id, icon}

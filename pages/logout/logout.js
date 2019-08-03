@@ -1,4 +1,4 @@
-// pages/logout/logout.js
+const app = getApp();
 Page({
 
   /**
@@ -9,10 +9,10 @@ Page({
   },
   tip(){
     try{
-      wx.clearStorageSync("userToken", {})
-      wx.switchTab({
-        url: '/pages/user/user',
-      })
+      wx.clearStorageSync()
+      wx.reLaunch({ url: '/pages/user/user' })
+
+
     }catch(e){
 
     }

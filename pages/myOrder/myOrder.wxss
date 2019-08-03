@@ -1,1 +1,17 @@
 /* pages/myOrder/myOrder.wxss */
+.tab {
+  display: flex;
+  font-size: 30rpx;
+  justify-content: space-between;
+  padding: 0 40rpx;
+}
+.tab-item {
+  width: 100rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+
+.tab-item-active {
+  color: pink;
+  border-bottom: 12rpx solid pink;
+}
