@@ -12,7 +12,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "小程序学习",
+    "navigationBarTitleText": "365家政",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

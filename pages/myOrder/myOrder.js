@@ -49,7 +49,17 @@ Page({
     }
   },
   select(e){
-    e.currentTarget.dataset.id
+    let _tab = this.data.tab;
+    _tab.forEach(item=>{
+      if (item.id == e.currentTarget.dataset.id){
+        item.isHeightlight = true;
+      }else{
+        item.isHeightlight = false;
+      }
+    })
+    this.setData({
+      tab: _tab
+    })
   },
   /**
    * 生命周期函数--监听页面加载

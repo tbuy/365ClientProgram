@@ -39,7 +39,13 @@ Page({
   },
   //跳页
   goItem(e) {
-    if (this.data.isLogin){
+    if (!this.data.isLogin) {
+      if (e.currentTarget.dataset.id == 1 || e.currentTarget.dataset.id == 2) {
+        app.showInfo('请先登录')
+      } else {
+        app.showInfo('敬请期待')
+      }
+    } else {
       if (e.currentTarget.dataset.router) {
         wx.navigateTo({
           url: e.currentTarget.dataset.router,
@@ -47,11 +53,7 @@ Page({
       } else {
         app.showInfo('敬请期待')
       }
-    }else{
-      app.showInfo('请先登录')
     }
-
-
 
   },
   //退出登录

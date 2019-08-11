@@ -1,11 +1,11 @@
-<view>
+<view class='theme_word_deep container-p'>
   <view class='public avatar'>
     <text>头像</text>
-    <image class="avatar-image public_avatar" src="{{icon||'/images/avatar.jpg'}}" bindtap='upload'></image>
+    <image class="avatar-image public_avatar" src="{{icon||'/images/avatar.png'}}" bindtap='upload'></image>
   </view>
   <view class='public'>
     <text>昵称</text>
     <input placeholder="请输入昵称" auto-focus maxlength="20" type="text" placeholder-style="color:#ccc" value="{{name}}" bindinput='userNameInput' />
   </view>
-  <view class='public_button_big btn' bindtap="save">保存</view>
+  <view class='button public_button_big theme_btn' bindtap="save">保存</view>
 </view>

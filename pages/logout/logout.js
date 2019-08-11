@@ -8,16 +8,12 @@ Page({
 
   },
   tip(){
-    try{
       wx.clearStorageSync()
-      wx.reLaunch({ url: '/pages/user/user' })
-
-
-    }catch(e){
-
-    }
-
-    
+      app.showLoading()
+      setTimeout(() => {
+        app.hideLoading(0)
+        wx.reLaunch({ url: '/pages/user/user' })
+      },800)
   },
   /**
    * 生命周期函数--监听页面加载

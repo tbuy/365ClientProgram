@@ -1,4 +1,6 @@
-/**app.wxss**/
+.container-p {
+  padding: 20rpx;
+}
 .container {
   height: 100%;
   display: flex;
@@ -12,8 +14,6 @@
 .public_button_big {
   width: 80%;
   border: 0 none;
-  background-color: rgb(240, 178, 46);
-  font-size: 30rpx;
   height: 80rpx;
   line-height: 80rpx;
   color: #fff;
@@ -28,12 +28,55 @@
   border-radius: 50rpx;
 }
 
+/* 省略号 */
+.ellipsis{
+    display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
 
 /* 颜色 */
 .icon-color {
   color: #ccc;
 }
-
+/* 按钮颜色 */
+.theme_btn {
+  background-color: #ff7832;
+}
+/* 主色背景 */
+.theme_bgColor1{
+    background-color: #ff6400;
+}
+/* 底色 */
+.theme_bgColor2 {
+    background-color: #f5f5f5;
+}
+/* 互补色背景 */
+.theme_bgColor3 {
+    background-color: #342e1f;
+}
+.theme_word_deep {
+    color: #342e1f;
+}
+.theme_word_normal {
+    color: #888;
+}
+.theme_word_red {
+    color: #ff3200;
+}
+.theme_wordSize_big {
+    font-size: 40rpx;
+}
+.theme_wordSize_normal {
+    font-size: 36rpx;
+}
+.theme_wordSize_small {
+    font-size: 28rpx;
+}
 
 /* icon */
 @font-face {font-family: "iconfont";

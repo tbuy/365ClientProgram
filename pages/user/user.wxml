@@ -1,14 +1,14 @@
-<view class='userPage'>
+<view class='userPage theme_bgColor2 theme_wordSize_smal'>
 
-  <view class='topContainer'>
+  <view class='topContainer theme_bgColor1'>
     <view class='image'>
-      <image class="avatar-image public_avatar" src="{{icon||'/images/avatar.jpg'}}"></image>
+      <image class="avatar-image public_avatar" src="{{icon||'/images/avatar.png'}}"></image>
     </view>
     <view class='name'>
-      <button wx:if="{{!isLogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='login'>请点击登录</button>
+      <button wx:if="{{!isLogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='login theme_wordSize_normal'>请点击登录</button>
       <view wx:else>
-        <text>{{ userName }}</text>
-        <view class="logout" bindtap='logout'>退出登录</view>  
+        <text class='theme_wordSize_normal'>{{ userName }}</text>
+        <view class="logout theme_word_small" bindtap='logout'>退出登录</view>  
       </view>
     </view>
       <view class='iconfont icon-edit icon-color edit' wx:if="{{isLogin}}" bindtap='edit'></view>
@@ -16,7 +16,7 @@
   </view>
 
   <view class='bottomContainer'>
-    <view wx:for="{{menuList}}" wx:key="{{item.id}}" class='item' bindtap="goItem" data-router="{{item.router}}">{{ item.title }}</view>
+    <view wx:for="{{menuList}}" wx:key="{{item.id}}" class='item theme_wordSize_normal' bindtap="goItem" data-router="{{item.router}}" data-id="{{item.id}}">{{ item.title }}</view>
   </view>
   
 </view>

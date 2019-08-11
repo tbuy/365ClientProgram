@@ -46,7 +46,6 @@ Page({
 
   },
   save(){
-    try{
       wx.request({
         url: apiPath.editUser,
         method: 'post',
@@ -79,9 +78,6 @@ Page({
           console.log(111, err)
         }
       })
-    }catch(e){
-      
-    }
   },
   userNameInput(e) {
     this.setData({

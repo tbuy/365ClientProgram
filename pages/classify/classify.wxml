@@ -1,18 +1,14 @@
 <view class='classify'>
   <view class='leftMenu'>
-    <view wx:for="{4}" wx:key="{item.id}" class='menuItem'>热门</view>
+    <view wx:for="{{menuList}}" wx:key="{item.id}" class='menuItem theme_wordSize_small {{item.isSelected?"item-active":""}}' bindtap='toggle' data-index="{{index}}">{{item.name}}</view>
   </view>
   <view class='rightContent'>
     <view class='image'>
-      <image src='/images/back.png'></image>
+      <image src='https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640'></image>
     </view>
-    <view wx:for="{3}" wx:key="{item.id}">
-      <view class='title'> —— title ——</view>
-      <view>
-        <view class='item'>
-          <view wx:for="{4}" wx:key="{index}" class='itemName'>hello</view>
-        </view>
-      </view>
+    <view class='item'>
+        <view wx:for="{{menuList[selectedIndex].children}}" wx:key="{index}" class='itemName theme_wordSize_small' bindtap='goContent' data-id="{{item.id}}">{{item.name}}</view>
+        <view wx:for="{{2}}" wx:key="{index}" class='itemName' style='height: 0'></view>
     </view>
   </view>
 </view>

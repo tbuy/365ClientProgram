@@ -21,6 +21,6 @@ input {
   line-height: 120rpx;
 }
 
-.btn {
+.button {
   margin-top: 100rpx;
 }
