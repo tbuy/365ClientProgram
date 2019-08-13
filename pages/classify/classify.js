@@ -7,7 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[],
     menuList: [{
       id: 1,
       isSelected: true,
@@ -50,15 +49,28 @@ Page({
     })
   },
   goContent(e){
-    console.log(e.currentTarget.dataset.id)
+    if (e.currentTarget.dataset.id){
+      wx.navigateTo({
+        url: "/pages/classifyContent/classifyContent",
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    return request.request(apiPath.getCategory, 'GET', {}).then(val => {
+    return request.request(apiPath.getCategoryTree, 'GET', {}).then(val => {
+      let _menuList = val.data;
+      _menuList.map((item,index)=>{
+        if(index == 0){
+          item.isSelected = true
+        }else{
+          item.isSelected = false
+        }
+        return item;
+      })
       this.setData({
-        list: val.data
+        menuList: _menuList
       })
     })
   },

@@ -6,7 +6,7 @@
     <view class='image'>
       <image src='https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640'></image>
     </view>
-    <view class='item'>
+    <view class='item' v-if="menuList[selectedIndex].children">
         <view wx:for="{{menuList[selectedIndex].children}}" wx:key="{index}" class='itemName theme_wordSize_small' bindtap='goContent' data-id="{{item.id}}">{{item.name}}</view>
         <view wx:for="{{2}}" wx:key="{index}" class='itemName' style='height: 0'></view>
     </view>

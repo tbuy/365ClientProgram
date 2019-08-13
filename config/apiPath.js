@@ -26,7 +26,10 @@ module.exports = {
 
     
     //获取服务分类 get
-    getCategory: apiPath + "/user/service/getCategory",
+  getCategoryTree: apiPath + "/user/service/getCategoryTree",
+
+    //获取服务分类列表 get {id}
+    getCategoryDetail: apiPath + "/user/service/getCategoryDetail"
 
 
 }

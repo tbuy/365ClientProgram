@@ -46,6 +46,7 @@
 /* 按钮颜色 */
 .theme_btn {
   background-color: #ff7832;
+  color: #fff;
 }
 /* 主色背景 */
 .theme_bgColor1{

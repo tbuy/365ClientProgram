@@ -7,7 +7,8 @@
     "pages/mobileLogin/mobileLogin",
     "pages/myOrder/myOrder",
     "pages/logout/logout",
-    "pages/editUser/editUser"
+    "pages/editUser/editUser",
+    "pages/classifyContent/classifyContent"
   ],
   "window": {
     "backgroundTextStyle": "light",
