@@ -19,7 +19,11 @@ Page({
     //滑动时长
     duration: 400,
   },
-
+  test(){
+    wx.navigateTo({
+      url: '/pages/classifyOrder/classifyOrder',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

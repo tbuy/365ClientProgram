@@ -1,0 +1,6 @@
+<view class="container-p success">
+  <image class="public_avatar avatar" src="/images/avatar.png"></image>
+  <view class="text1 theme_wordSize_normal">发布成功</view>
+  <view class="text2 theme_wordSize_normal">专业经纪人火速与您联系中</view>
+  <button class="btn theme_btn">关注365家政公众账号，及时接收服务通知</button>
+</view>

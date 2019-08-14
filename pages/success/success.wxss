@@ -1,0 +1,29 @@
+.success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 80rpx 0 40rpx;
+}
+
+.text1 {
+  font-weight: 700;
+  margin-bottom: 30rpx;
+}
+
+.text2 {
+  margin-bottom: 80rpx;
+}
+
+.btn {
+  font-size: 32rpx;
+}
+
+.btn:after {
+  border: 0 none;
+}

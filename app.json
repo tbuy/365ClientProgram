@@ -8,7 +8,9 @@
     "pages/myOrder/myOrder",
     "pages/logout/logout",
     "pages/editUser/editUser",
-    "pages/classifyContent/classifyContent"
+    "pages/classifyContent/classifyContent",
+    "pages/success/success",
+    "pages/classifyOrder/classifyOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

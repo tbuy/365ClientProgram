@@ -7,4 +7,5 @@
       </swiper-item>
     </block>
   </swiper>
+  <button bindtap="test">test</button>
 </view>
