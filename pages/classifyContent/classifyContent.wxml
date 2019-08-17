@@ -1,29 +1,60 @@
 <view class='container-p'>
 
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
+  <view class="tab theme_word_deep theme_wordSize_normal">
+    <block wx:for="{{tab}}" wx:key="{{item.id}}">
+      <view class="tab-item {{item.isSelected?'item-active':''}}" bindtap="select" data-index="{{index}}">{{item.name}}</view>
     </block>
-  </swiper>
+  </view>
+  <!-- 列表 -->
+  <scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower' wx:if="{{isShowSelect}}">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
 
-  <view class="list theme_wordSize_small theme_word_deep">
-    <view wx:for="{{8}}" wx:key="{{item.id}}" class="list-item">
-      <view class="item">
-        <image class="item-image public_avatar" src="{{icon||'/images/avatar.png'}}"></image>
-        <view class="intro">
-          <view>name</view>
-          <view>
-            <text>47</text>
-            <text>辽宁</text>
-            <text>从业4年</text>
+    <view class="list theme_wordSize_small theme_word_deep">
+      <view wx:for="{{list}}" wx:key="{{item.id}}" class="list-item">
+        <view class="item">
+          <image class="item-image public_avatar" src="{{item.icon || '/images/avatar.png'}}"></image>
+          <view class="intro">
+            <view>{{ item.name || '宋阿姨'}}</view>
+            <view style="marginTop: 5rpx">
+              <text wx:if="{{item.age}}">{{ item.age }}岁</text>
+              <text wx:if="{{item.birthplace}}"> | {{ item.birthplace }}</text>
+              <text wx:if="{{item.experiences}}"> | 从业{{ item.experiences }}年</text>
+              <text wx:if="{{item.education_name && item.education_name!='暂无学历'}}"> | {{ item.education_name }}</text>
+            </view>
           </view>
+          <view class="theme_btn btn" bindtap="advisory">咨询价格</view>
         </view>
-        <view class="theme_btn btn">咨询价格</view>
+        <view class="remark theme_word_normal" wx:if="{{item.working_experience}}">备注：{{ item.working_experience }}</view>
       </view>
-      <view class="remark theme_word_normal">备注：eeeee</view>
+    </view>
+  </scroll-view>
+  <!-- 体验服务 -->
+  <view class="classifyOrder" wx:else>
+  <block wx:for="{{imageFile}}" wx:key="{{item.id}}">
+    <image src="{{item}}" class="image"/>
+  </block>
+    <view class="title theme_wordSize_normal">欢迎体验365家政保姆服务</view>
+    <form bindsubmit="formSubmit">
+      <input name="name" placeholder="请输入您的姓名" auto-focus maxlength="10" type="text" placeholder-style="color:#ccc" value="{{name}}" bindinput='nameInput' />
+      <input name="phone" placeholder="请输入您的手机号" auto-focus maxlength="11" type="text" placeholder-style="color:#ccc" value="{{phone}}" bindinput='phoneInput' />
+      <button class='public_button_big theme_btn button' form-type="submit">立即预约</button>
+    </form>
+  </view>
+  <!-- 表单弹层 -->
+  <view class="formMark" wx:if="{{isShowForm}}">
+    <view class="form">
+      <view bindtap="close" class="close">关闭</view>
+      <form bindsubmit="formSubmitSuccess">
+        <input name="name" placeholder="请输入您的姓名" auto-focus maxlength="10" type="text" placeholder-style="color:#ccc" value="{{name}}" bindinput='nameInput' />
+        <input name="phone" placeholder="请输入您的手机号" auto-focus maxlength="11" type="text" placeholder-style="color:#ccc" value="{{phone}}" bindinput='phoneInput' />
+        <button class='public_button_big theme_btn button' form-type="submit">立即预约</button>
+      </form>
     </view>
   </view>
-
 </view>

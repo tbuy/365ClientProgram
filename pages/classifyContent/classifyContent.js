@@ -6,17 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[{
+    //导航
+    tab: [{
+      name: '保姆',
       id: 1,
-      icon:'',
-      name:'李阿姨',
-      age: 49,
-      experiences: 3,//工作经验
-      native: '沈阳',//籍贯
-      isRecommend: false,//是否推荐
-      mark:['做饭','打扫卫生','照顾老人'],//标签
-      remark:''//备注
-    }],
+      isSelected: true
+    },
+    {
+      name: '体验服务',
+      id: 2,
+      isSelected: false
+    }
+    ],
+    //选中模块
+    isShowSelect: true,
+    list: [],
+    // 分页
+    lastId: 0,
+    isLast: true,
+    pageNumber: 15,
     //轮播
     imgUrls: [
       'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
@@ -29,13 +37,127 @@ Page({
     interval: 5000,
     //滑动时长
     duration: 400,
+    //轮播高度
+    SWIPER_HEIGHT: 200,
+    height: '',
+    id: 1,
+    //表单
+    name: '',
+    phone: '',
+    //是否显示表单
+    isShowForm: false,
+    //体验服务接口
+    imageFile:[]
   },
-  
+  select(e) {
+    if (e.currentTarget.dataset.index == 0) {
+      this.setData({
+        isShowSelect: true
+      })
+
+    } else {
+      this.setData({
+        isShowSelect: false
+      })
+    }
+    let _tab = this.data.tab
+    _tab.map((item, index) => {
+      if (index == e.currentTarget.dataset.index) {
+        item.isSelected = true
+      } else {
+        item.isSelected = false
+      }
+      return item
+    })
+
+    this.setData({
+      tab: _tab
+    })
+  },
+  getOrderList(lastId) {
+    wx.showNavigationBarLoading()
+    wx.request({
+      url: apiPath.getCategoryDetail,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      data: {
+        id: this.data.id,
+        lastId: lastId,
+        pageNumber: this.data.pageNumber,
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          let _data = res.data.data;
+          this.setData({
+            list: this.data.list.concat(_data.data),
+            lastId: _data.lastId,
+            isLast: _data.isLast,
+            imageFile: _data.files
+          })
+          wx.hideNavigationBarLoading()
+        }
+      },
+      fail: (err) => {
+        app.showInfo(res.data.message)
+      }
+    })
+  },
+  lower() {
+    if (!this.data.isLast) {
+      this.getOrderList(this.data.lastId)
+    } else {
+      app.showInfo('没有更多')
+    }
+
+  },
+  advisory() {
+    this.setData({
+      isShowForm: true
+    })
+
+  },
+  phoneInput(e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  nameInput(e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  close(){
+    this.setData({
+      isShowForm: false,
+      name: '',
+      phone: ''
+    })
+  },
+  formSubmitSuccess(e) {
+    wx.navigateTo({
+      url: '/pages/success/success'
+    })
+    this.close()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          height: res.windowHeight - 60
+        })
+      }
+    })
 
+    this.setData({
+      id: options.id
+    })
+
+    this.getOrderList(0)
   },
 
   /**

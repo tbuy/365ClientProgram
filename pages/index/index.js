@@ -18,11 +18,7 @@ Page({
     interval: 5000,
     //滑动时长
     duration: 400,
-  },
-  test(){
-    wx.navigateTo({
-      url: '/pages/classifyOrder/classifyOrder',
-    })
+    videoContext:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -37,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.videoContext = wx.createVideoContext('myVideo')
   },
 
   /**

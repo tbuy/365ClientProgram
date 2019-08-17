@@ -9,8 +9,7 @@
     "pages/logout/logout",
     "pages/editUser/editUser",
     "pages/classifyContent/classifyContent",
-    "pages/success/success",
-    "pages/classifyOrder/classifyOrder"
+    "pages/success/success"
   ],
   "window": {
     "backgroundTextStyle": "light",
