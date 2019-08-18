@@ -11,7 +11,7 @@
         <view class="logout theme_word_small" bindtap='logout'>退出登录</view>  
       </view>
     </view>
-      <view class='iconfont icon-edit icon-color edit' wx:if="{{isLogin}}" bindtap='edit'></view>
+      <view class='iconfont icon-editor icon-color edit' wx:if="{{isLogin}}" bindtap='edit'></view>
 
   </view>
 

@@ -29,7 +29,9 @@ module.exports = {
   getCategoryTree: apiPath + "/user/service/getCategoryTree",
 
     //获取服务分类列表 get {id}
-    getCategoryDetail: apiPath + "/user/service/getCategoryDetail"
+    getCategoryDetail: apiPath + "/user/service/getCategoryDetail",
 
+    //立即预约提交表单 post {phone, name}
+    submitRequire: apiPath + "/user/service/submitRequire"
 
 }

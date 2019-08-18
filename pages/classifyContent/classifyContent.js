@@ -1,5 +1,6 @@
 const apiPath = require('../../config/apiPath.js');
 const config = require('../../config/config.js');
+let app = getApp();
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
   data: {
     //导航
     tab: [{
-      name: '保姆',
+      name: '列表',
       id: 1,
       isSelected: true
     },
@@ -47,7 +48,7 @@ Page({
     //是否显示表单
     isShowForm: false,
     //体验服务接口
-    imageFile:[]
+    imageFile: []
   },
   select(e) {
     if (e.currentTarget.dataset.index == 0) {
@@ -75,7 +76,6 @@ Page({
     })
   },
   getOrderList(lastId) {
-    wx.showNavigationBarLoading()
     wx.request({
       url: apiPath.getCategoryDetail,
       method: 'get',
@@ -96,7 +96,6 @@ Page({
             isLast: _data.isLast,
             imageFile: _data.files
           })
-          wx.hideNavigationBarLoading()
         }
       },
       fail: (err) => {
@@ -128,7 +127,7 @@ Page({
       name: e.detail.value
     })
   },
-  close(){
+  close() {
     this.setData({
       isShowForm: false,
       name: '',
@@ -136,10 +135,39 @@ Page({
     })
   },
   formSubmitSuccess(e) {
-    wx.navigateTo({
-      url: '/pages/success/success'
-    })
-    this.close()
+    let regPhone = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+    if (!regPhone.test(e.detail.value.phone)) {
+      app.showInfo('请输入正确手机号')
+    } else {
+      wx.showNavigationBarLoading()
+      wx.request({
+        url: apiPath.submitRequire,
+        method: 'post',
+        header: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          name: e.detail.value.name,
+          phone: e.detail.value.phone,
+        },
+        success: (res) => {
+          if (res.data.code == 0) {
+            wx.navigateTo({
+              url: '/pages/success/success'
+            })
+            this.close()
+            wx.hideNavigationBarLoading()
+          }
+        },
+        fail: (err) => {
+          app.showInfo(res.data.message)
+        }
+      })
+    }
+
+
+
+
   },
   /**
    * 生命周期函数--监听页面加载

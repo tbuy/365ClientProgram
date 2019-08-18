@@ -13,7 +13,7 @@
   border-bottom: 5rpx solid #ff7832;
 }
 swiper {
-    width: 100%;
+  width: 100%;
   height: 200rpx;
   border-radius: 10rpx;
   overflow: hidden;
@@ -62,18 +62,19 @@ swiper {
 
 .image {
   width: 100%;
-  height: 200rpx;
+  display: block;
 }
 .title {
   text-align: center;
   margin-top: 40rpx;
 }
 input {
-  margin: 50rpx auto;
+  margin: 30rpx auto;
   width: 540rpx;
   border-radius: 10rpx;
   border: 1rpx solid #ccc;
-  padding: 20rpx 30rpx;
+  padding: 15rpx 30rpx;
+  font-size: 30rpx;
 }
 
 
@@ -103,7 +104,6 @@ input {
 
 .close {
   position: absolute;
-  background-color: pink;
-  left: 10rpx;
-  top: 10rpx;
+  left: 20rpx;
+  top: 20rpx;
 }
