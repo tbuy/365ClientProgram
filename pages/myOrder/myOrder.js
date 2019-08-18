@@ -8,45 +8,31 @@ Page({
   data: {
     tab:[
       {
-        id: 1,
+        id: 0,
         title: "全部",
         isHeightlight: true
       },
       {
         id: 2,
-        title: "待确认",
+        title: "已签约",
         isHeightlight: false
       },
       {
         id: 3,
-        title: "待服务",
+        title: "二次签约",
         isHeightlight: false
       },
       {
         id: 4,
-        title: "待支付",
+        title: "已取消",
         isHeightlight: false
       },
     ],
-    data: {
-      listId: 1,
-      list:[
-        {
-          id: 1,
-          title:'保姆',
-          time: '2019.04.05 —— 2019.07.04',
-          address: '沈阳国际软件园',
-          image: ''
-        },
-        {
-          id: 2,
-          title: '保姆',
-          time: '2019.04.05 —— 2019.07.04',
-          address: '沈阳国际软件园',
-          image: ''
-        }
-      ]
-    }
+    selectedId: 0,
+    userId: 1,
+    list:[],
+    isLast: false,
+    lastId: 1
   },
   select(e){
     let _tab = this.data.tab;
@@ -61,11 +47,43 @@ Page({
       tab: _tab
     })
   },
+  getOrderList(){
+      wx.request({
+        url: apiPath.getOrderList,
+        method: 'get',
+        header: {
+          'Content-Type': 'application/json',
+          'accessToken': wx.getStorageSync('accessToken')
+        },
+        data: {
+          type: this.data.selectedId,
+          id: this.data.userId,
+        },
+        success: (res) => {
+          if (res.data.code == 0) {
+            var _data = res.data.data
+            this.setData({
+              list: _data.data,
+              isLast: _data.isLast,
+              lastId: _data.lastId
+            })
+          }
+        },
+        fail: (err) => {
+          console.log(111, err)
+        }
+      })
+  },
+  goDetail(e){
+    wx.navigateTo({
+      url: '/pages/myOrderDetail/myOrderDetail?id=' + e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getOrderList()
   },
 
   /**
@@ -79,30 +97,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    try {
-      // wx.request({
-      //   url: apiPath.getOrderList,
-      //   method: 'get',
-      //   header: {
-      //     'Content-Type': 'application/json',
-      //     'accessToken': wx.getStorageSync('accessToken')
-      //   },
-      //   data: {
-      //     type: 1,
-      //     id: 1,
-      //   },
-      //   success: (res) => {
-      //     if (res.data.code == 0) {
-      //       console.log(res.data.message)
-      //     }
-      //   },
-      //   fail: (err) => {
-      //     console.log(111, err)
-      //   }
-      // })
-    }catch(e){
-
-    }
+  
   },
 
   /**

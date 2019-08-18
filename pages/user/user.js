@@ -24,7 +24,8 @@ Page({
     }],
     isLogin: false,
     userName: '',
-    icon:''
+    icon:'',
+    userId: 1
   },
   //获取用户信息
   bindGetUserInfo(e) {
@@ -48,7 +49,7 @@ Page({
     } else {
       if (e.currentTarget.dataset.router) {
         wx.navigateTo({
-          url: e.currentTarget.dataset.router,
+          url: e.currentTarget.dataset.router + "?id=" + this.data.userId,
         })
       } else {
         app.showInfo('敬请期待')
@@ -94,7 +95,8 @@ Page({
         let _userInfo = JSON.parse(wx.getStorageSync('userInfo'))
         this.setData({
           userName: _userInfo.name || _userInfo.phone,
-          icon: _userInfo.icon
+          icon: _userInfo.icon,
+          userId: _userInfo.id
         })
         console.log(_userInfo)
 
