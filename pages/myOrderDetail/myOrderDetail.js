@@ -17,14 +17,15 @@ getOrder(id){
       'accessToken': wx.getStorageSync('accessToken')
     },
     data: {
-      id: id,
+      id: 4,
     },
     success: (res) => {
       if (res.data.code == 0) {
         var _data = res.data.data
         this.setData({
-          orderContent: _data.data,
+          orderContent: _data,
         })
+        console.log(_data)
       }
     },
     fail: (err) => {
@@ -32,6 +33,9 @@ getOrder(id){
     }
   })
 },
+  submit(){
+    app.showInfo('敬请期待')
+  },
   /**
    * 生命周期函数--监听页面加载
    */

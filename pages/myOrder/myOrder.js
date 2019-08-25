@@ -44,8 +44,11 @@ Page({
       }
     })
     this.setData({
-      tab: _tab
+      tab: _tab,
+      selectedId: e.currentTarget.dataset.id
     })
+    this.getOrderList()
+
   },
   getOrderList(){
       wx.request({

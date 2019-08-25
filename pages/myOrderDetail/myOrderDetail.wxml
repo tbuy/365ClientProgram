@@ -1,2 +1,37 @@
-<!--pages/myOrderDetail/myOrderDetail.wxml-->
-<text>pages/myOrderDetail/myOrderDetail.wxml</text>
+<view class="detail theme_wordSize_normal">
+  <view class="public">
+    <view class="title">订单状态</view> 订单{{orderContent.type == 2?'已签约':orderContent.type == 3?'二次签约':orderContent.type == 4?'已取消':'处理中'}}</view>
+  <view class="public">
+    <view class="title">订单详情</view>
+
+    <view>
+      <text class="pub-title theme_word_normal">订单编号：</text>
+      <text>{{orderContent.order_code}}</text>
+    </view>
+    <view>
+      <text class="pub-title theme_word_normal">订单名称：</text>
+      <text>{{orderContent.work_type}}</text>
+    </view>
+    <view>
+      <text class="pub-title theme_word_normal">订单内容：</text>
+      <text>{{orderContent.order_details}}</text>
+    </view>
+    <view>
+      <text class="pub-title theme_word_normal">服务地址：</text>
+      <text>{{orderContent.service_address}}</text>
+    </view>
+    <view>
+      <text class="pub-title theme_word_normal">服务时间：</text>
+      <text>{{orderContent.service_duration}}</text>
+    </view>
+  </view>
+  <view class="public">
+    <view class="title">订单明细</view>
+    <view class="price ">
+      <view class="theme_word_normal">订单总价</view>
+      <view>{{orderContent.wage}}元</view>
+    </view>
+
+  </view>
+  <button class='public_button_big theme_btn button' bindtap="submit">查看合同</button>
+</view>
