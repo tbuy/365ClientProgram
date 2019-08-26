@@ -1,7 +1,7 @@
 {
     "pages": [
         "pages/index/main",
-        "pages/menu/main",
+        "pages/classify/main",
         "pages/user/main"
     ],
     "window": {
@@ -23,7 +23,7 @@
                 "selectedIconPath": "static/tabs/home.png"
             }, {
                 "text": "分类",
-                "pagePath": "pages/menu/main",
+                "pagePath": "pages/classify/main",
                 "iconPath": "static/tabs/un_menu.png",
                 "selectedIconPath": "static/tabs/menu.png"
             },
@@ -43,7 +43,7 @@
             },
             {
                 "text": "分类",
-                "pagePath": "pages/menu/main",
+                "pagePath": "pages/classify/main",
                 "icon": "static/tabs/un_menu.png",
                 "activeIcon": "static/tabs/menu.png"
             },

@@ -2,7 +2,7 @@
 	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": true,
-		"es6": true,
+		"es6": false,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
@@ -11,6 +11,8 @@
 	"compileType": "miniprogram",
 	"appid": "wx481f52562354d497",
 	"projectname": "mpvue365",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -20,13 +22,24 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/classify/main",
+					"scene": null
+				}
+			]
 		}
 	}
 }
