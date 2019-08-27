@@ -43,6 +43,7 @@
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
+    "flyio": "^0.6.14",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "glob": "^7.1.2",
     "html-webpack-plugin": "^3.2.0",
