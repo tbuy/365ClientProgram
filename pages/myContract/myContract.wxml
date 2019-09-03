@@ -1,0 +1,57 @@
+<wxs src="./../filter.wxs" module="filter" />
+<view class="contract">
+  <view class="public">
+    <view>{{contract.contract_code}}</view>
+    <view>{{contract.type == 1?'待执行':contract.type == 2?'执行中':'已终止'}}</view>
+  </view>
+
+  <view class="public">
+    <view>签约时间</view>
+    <view>{{filter.formatDate(sign_at)}}</view>
+  </view>
+
+  <view class="public">
+    <view>终止时间</view>
+    <view>{{filter.formatDate(stop_at)}}</view>
+  </view>
+
+  <view class="public">
+    <view>客户</view>
+    <view>{{contract.sign_user_name}}</view>
+  </view>
+
+  <view class="public">
+    <view>签约人</view>
+    <view>{{contract.sign_manager_name}}</view>
+  </view>
+
+  <view class="public">
+    <view>服务内容</view>
+    <view>{{contract.service_contains}}</view>
+  </view>
+
+  <!-- <view class="public">
+    <view>服务方式</view>
+    <view>{{contract.service_type == 1？‘全日住家型':contract.service_type == 2？'日间照料型':contract.service_type == 3？'计时服务型':'其他'}}</view>
+  </view> -->
+
+  <view class="public">
+    <view>劳务报酬</view>
+    <view>{{contract.staff_wage}}</view>
+  </view>
+
+  <view class="public">
+    <view>服务费</view>
+    <view>{{contract.user_charge}}</view>
+  </view>
+  
+  <view class="public">
+    <view>总费</view>
+    <view>{{contract.user_pay}}</view>
+  </view>
+
+  <view wx-for="{{contract.files}}" wx:key="{{item.id}}">
+    <image src="{{item.url}}"></image>
+  </view>
+
+</view>

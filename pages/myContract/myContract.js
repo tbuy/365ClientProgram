@@ -6,16 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderContent: null
+    contract:null
   },
-  goDetail(e) {
-    wx.navigateTo({
-      url: '/pages/myContract/myContract?id=' + e.currentTarget.dataset.id,
-    })
-  },
-  getOrder(id) {
+  getContract(id){
     wx.request({
-      url: apiPath.getOrder,
+      url: apiPath.getContract,
       method: 'get',
       header: {
         'Content-Type': 'application/json',
@@ -28,9 +23,8 @@ Page({
         if (res.data.code == 0) {
           var _data = res.data.data
           this.setData({
-            orderContent: _data,
+            contract: _data,
           })
-          console.log(_data)
         }
       },
       fail: (err) => {
@@ -38,14 +32,11 @@ Page({
       }
     })
   },
-  submit() {
-    app.showInfo('敬请期待')
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getOrder(options.id)
+    this.getContract(options.id)
   },
 
   /**

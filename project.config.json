@@ -45,8 +45,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "订单详情",
-					"pathName": "pages/myOrderDetail/myOrderDetail",
+					"name": "订单",
+					"pathName": "pages/myOrder/myOrder",
 					"query": "",
 					"scene": null
 				}

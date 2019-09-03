@@ -1,3 +1,4 @@
+<wxs src="./../filter.wxs" module="filter"/>
 <view class="detail theme_wordSize_normal">
   <view class="public">
     <view class="title">订单状态</view> 订单{{orderContent.type == 2?'已签约':orderContent.type == 3?'二次签约':orderContent.type == 4?'已取消':'处理中'}}</view>
@@ -33,5 +34,17 @@
     </view>
 
   </view>
-  <button class='public_button_big theme_btn button' bindtap="submit">查看合同</button>
+  <view class="public" wx:if="{{orderContent.order_contract.length > 0}}">
+    <view class="title">合同</view>
+    <view wx:for="{{orderContent.order_contract}}" class="contract" bindtap='goDetail' data-id="{{item.id}}" wx:key="{{item.id}}">
+      <view>
+        <text class="pub-title theme_word_normal">合同编号：</text>
+        <text>{{item.contract_code}}</text>
+      </view>
+      <view>
+        <text class="pub-title theme_word_normal">创建时间：</text>
+        <text>{{filter.formatDate(item.sign_at)}}</text>
+      </view>
+    </view>
+  </view>
 </view>

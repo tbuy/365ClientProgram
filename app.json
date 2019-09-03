@@ -10,7 +10,8 @@
     "pages/logout/logout",
     "pages/editUser/editUser",
     "pages/classifyContent/classifyContent",
-    "pages/success/success"
+    "pages/success/success",
+    "pages/myContract/myContract"
   ],
   "window": {
     "backgroundTextStyle": "light",

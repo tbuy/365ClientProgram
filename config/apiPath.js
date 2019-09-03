@@ -21,6 +21,8 @@ module.exports = {
     //获取单个订单信息 get {id}
     getOrder: apiPath + "/user/personal/getOrder",
 
+    //获取合同详情 get{id}
+    getContract: apiPath + "/user/personal/getContract",
 
 
 
