@@ -13,7 +13,7 @@ module.exports = {
     editUser: apiPath + "/user/personal/editUser",
 
     //上传头像 post {id, icon}
-    editIcon: apiPath + "/user/personal/editIcon",
+    editIcon: apiPath + "/user/personal/uploadImage",
 
     //获取订单列表(懒加载) get {id,type}
     getOrderList: apiPath + "/user/personal/getOrderList",

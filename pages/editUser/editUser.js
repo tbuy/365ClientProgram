@@ -9,7 +9,8 @@ Page({
     name: '',
     icon: '',
     id: 0,
-    phone: ''
+    phone: '',
+    path: ''
   },
   upload() {
     wx.chooseImage({
@@ -32,35 +33,15 @@ Page({
             'Content-Type': 'application/json',
             'accessToken': wx.getStorageSync('accessToken')
           },
-          success: (res) => {
-            if (res.data.code == 0) {
-              console.log(res.data.message)
-            }
+          success: (val) => {
+            this.setData({
+              path: JSON.parse(val.data).data.path
+            })
           },
           fail: (err) => {
             console.log(111, err)
           }
         })
-        // wx.request({
-        //   url: apiPath.editIcon,
-        //   method: 'post',
-        //   header: {
-        //     'Content-Type': 'application/json',
-        //     'accessToken': wx.getStorageSync('accessToken')
-        //   },
-        //   data: {
-        //     icon: res.tempFilePaths[0],
-        //     id: this.data.id,
-        //   },
-        //   success: (res) => {
-        //     if (res.data.code == 0) {
-        //       console.log(res.data.message)
-        //     }
-        //   },
-        //   fail: (err) => {
-        //     console.log(111, err)
-        //   }
-        // })
       }
     })
 
@@ -76,6 +57,7 @@ Page({
       data: {
         name: this.data.name,
         id: this.data.id,
+        icon: this.data.path
       },
       success: (res) => {
         if (res.data.code == 0) {
