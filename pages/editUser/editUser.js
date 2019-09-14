@@ -11,26 +11,26 @@ Page({
     id: 0,
     phone: ''
   },
-  upload(){
+  upload() {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success:(res)=> {
+      success: (res) => {
 
         this.setData({
           icon: res.tempFilePaths[0]
         })
-        wx.request({
+        wx.uploadFile({
           url: apiPath.editIcon,
-          method: 'post',
+          filePath: res.tempFilePaths[0],
+          name: 'file',
+          formData: {
+            id: this.data.id
+          },
           header: {
             'Content-Type': 'application/json',
             'accessToken': wx.getStorageSync('accessToken')
-          },
-          data: {
-            icon: res.tempFilePaths[0],
-            id: this.data.id,
           },
           success: (res) => {
             if (res.data.code == 0) {
@@ -41,43 +41,63 @@ Page({
             console.log(111, err)
           }
         })
+        // wx.request({
+        //   url: apiPath.editIcon,
+        //   method: 'post',
+        //   header: {
+        //     'Content-Type': 'application/json',
+        //     'accessToken': wx.getStorageSync('accessToken')
+        //   },
+        //   data: {
+        //     icon: res.tempFilePaths[0],
+        //     id: this.data.id,
+        //   },
+        //   success: (res) => {
+        //     if (res.data.code == 0) {
+        //       console.log(res.data.message)
+        //     }
+        //   },
+        //   fail: (err) => {
+        //     console.log(111, err)
+        //   }
+        // })
       }
     })
 
   },
-  save(){
-      wx.request({
-        url: apiPath.editUser,
-        method: 'post',
-        header: {
-          'Content-Type': 'application/json',
-          'accessToken': wx.getStorageSync('accessToken')
-        },
-        data: {
-          name: this.data.name,
-          id: this.data.id,
-        },
-        success: (res) => {
-          if (res.data.code == 0) {
+  save() {
+    wx.request({
+      url: apiPath.editUser,
+      method: 'post',
+      header: {
+        'Content-Type': 'application/json',
+        'accessToken': wx.getStorageSync('accessToken')
+      },
+      data: {
+        name: this.data.name,
+        id: this.data.id,
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
 
-            wx.setStorageSync('userInfo', JSON.stringify({
-              name: this.data.name,
-              icon: this.data.icon,
-              id: this.data.id,
-              phone: this.data.phone
-            }));
+          wx.setStorageSync('userInfo', JSON.stringify({
+            name: this.data.name,
+            icon: this.data.icon,
+            id: this.data.id,
+            phone: this.data.phone
+          }));
 
-            app.showInfo(res.data.message)
-            wx.reLaunch({
-              url: "/pages/user/user"
-            })
-          }
-
-        },
-        fail: (err) => {
-          console.log(111, err)
+          app.showInfo(res.data.message)
+          wx.reLaunch({
+            url: "/pages/user/user"
+          })
         }
-      })
+
+      },
+      fail: (err) => {
+        console.log(111, err)
+      }
+    })
   },
   userNameInput(e) {
     this.setData({
