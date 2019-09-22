@@ -60,11 +60,21 @@ Page({
     this.setData({
       phone: e.detail.value
     })
+    if(this.data.phone > 0 && this.data.captcha > 0){
+      this.setData({
+        isHeightlight: true
+      })
+    }
   },
   captchaInput(e) {
     this.setData({
       captcha: e.detail.value
     })
+    if (this.data.phone > 0 && this.data.captcha > 0) {
+      this.setData({
+        isHeightlight: true
+      })
+    }
   },
 
 })
