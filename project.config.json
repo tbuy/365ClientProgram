@@ -41,19 +41,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "订单",
 					"pathName": "pages/myOrder/myOrder",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "登录",
-					"pathName": "pages/mobileLogin/mobileLogin",
 					"query": "",
 					"scene": null
 				}
