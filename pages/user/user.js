@@ -5,13 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuList: [ {
+    menuList: [{
       id: 1,
       title: '我的订单',
       router: '/pages/myOrder/myOrder'
     }, {
       id: 2,
-      title: '我的合同',
+      title: '我的简历',
       router: ''
     }, {
       id: 3,
@@ -21,10 +21,14 @@ Page({
       id: 4,
       title: '关于我们',
       router: ''
+    }, {
+      id: 4,
+      title: '意见反馈',
+      router: ''
     }],
     isLogin: false,
     userName: '',
-    icon:'',
+    icon: '',
     userId: 1
   },
   //获取用户信息
@@ -34,7 +38,7 @@ Page({
       wx.navigateTo({
         url: '/pages/mobileLogin/mobileLogin',
       })
-    }else{
+    } else {
       app.showInfo('您已拒绝授权，请重新点击并登录')
     }
   },
@@ -86,7 +90,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    try{
+    try {
       app.checkLogin();
       if (wx.getStorageSync('isLogin')) {
         this.setData({
@@ -101,11 +105,11 @@ Page({
         console.log(_userInfo)
 
       };
-    }catch(e){
+    } catch (e) {
 
     }
-   
-    
+
+
   },
 
   /**

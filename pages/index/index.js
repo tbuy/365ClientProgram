@@ -18,7 +18,26 @@ Page({
     interval: 5000,
     //滑动时长
     duration: 400,
-    videoContext:''
+    videoContext:'',
+    //导航
+    navContent:[
+      {
+        image:'/images/nav.png',
+        name: '新人专享'
+      },
+      {
+        image: '/images/nav.png',
+        name: '家电清洗'
+      },
+      {
+        image: '/images/nav.png',
+        name: '每日抽奖'
+      },
+      {
+        image: '/images/nav.png',
+        name: '新人专享'
+      }
+    ]
   },
   /**
    * 生命周期函数--监听页面加载

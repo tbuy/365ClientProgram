@@ -1,11 +1,70 @@
 swiper {
-    width: 100%;
+  width: 100%;
   height: 320rpx;
   border-radius: 10rpx;
   overflow: hidden;
 }
+
 .slide-image {
   width: 100%;
   height: 320rpx;
   border-radius: 10rpx;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50rpx;
+}
+
+.nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.nav text {
+  font-size: 24rpx;
+  margin-top: 15rpx;
+}
+
+.centerAd {
+  margin-top: 50rpx;
+}
+
+.centerAd image {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+
+.hotRecommend {
+  margin-top: 50rpx;
+}
+
+.hotRecommend .hotImage {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.hotRecommend image {
+  width: 49%;
+  height: 220rpx;
+  border-radius: 10rpx;
+}
+.videoRecommend {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.videoRecommend video{
+  width: 100%;
+  margin-top: 20rpx;
 }
