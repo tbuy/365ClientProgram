@@ -1,4 +1,5 @@
 const app = getApp();
+const config = require('../../config/config.js');
 Page({
 
   /**
@@ -52,7 +53,11 @@ Page({
     if (!this.data.isLogin) {
       if (e.currentTarget.dataset.id == 1 || e.currentTarget.dataset.id == 2) {
         app.showInfo('请先登录')
-      } else {
+      } else if (e.currentTarget.dataset.id == 3){
+        wx.makePhoneCall({
+          phoneNumber: config.phone
+        })
+      }else {
         app.showInfo('敬请期待')
       }
     } else {
@@ -60,7 +65,11 @@ Page({
         wx.navigateTo({
           url: e.currentTarget.dataset.router + "?id=" + this.data.userId,
         })
-      } else {
+      } else if (e.currentTarget.dataset.id == 3) {
+        wx.makePhoneCall({
+          phoneNumber: config.phone
+        })
+      }else {
         app.showInfo('敬请期待')
       }
     }

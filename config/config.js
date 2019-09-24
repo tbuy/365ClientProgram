@@ -6,5 +6,5 @@ module.exports = {
   appid: "", // 您的小程序的appid，购物单功能需要使用
   shareProfile: '', // 首页转发的时候话术
   requireBindMobile: true, // 是否强制绑定手机号码才能使用
-  phone: 18640476934, //配置客服电话
+  phone: "18640476934", //配置客服电话
 }

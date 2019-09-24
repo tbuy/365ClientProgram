@@ -7,5 +7,5 @@
     <text>昵称</text>
     <input placeholder="请输入昵称" maxlength="20" type="text" placeholder-style="color:#ccc" value="{{name}}" bindinput='userNameInput' />
   </view>
-  <view class='button public_button_big theme_btn' bindtap="save">保存</view>
+  <view class='button theme_btn' bindtap="save">保存</view>
 </view>

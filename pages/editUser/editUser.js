@@ -47,6 +47,7 @@ Page({
 
   },
   save() {
+    app.showLoading()
     wx.request({
       url: apiPath.editUser,
       method: 'post',
@@ -68,7 +69,7 @@ Page({
             id: this.data.id,
             phone: this.data.phone
           }));
-
+          app.hideLoading(0)
           app.showInfo(res.data.message)
           wx.reLaunch({
             url: "/pages/user/user"
