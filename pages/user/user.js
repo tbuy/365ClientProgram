@@ -7,22 +7,27 @@ Page({
   data: {
     menuList: [{
       id: 1,
+      iconClass: 'icon-order',
       title: '我的订单',
       router: '/pages/myOrder/myOrder'
     }, {
       id: 2,
+      iconClass: 'icon-resume',
       title: '我的简历',
       router: ''
     }, {
       id: 3,
+      iconClass: 'icon-customer',
       title: '联系客服',
       router: ''
     }, {
       id: 4,
+      iconClass: 'icon-about',
       title: '关于我们',
       router: ''
     }, {
-      id: 4,
+      id: 5,
+      iconClass: 'icon-opinion',
       title: '意见反馈',
       router: ''
     }],
@@ -63,9 +68,12 @@ Page({
   },
   //退出登录
   logout() {
-    wx.navigateTo({
-      url: '/pages/logout/logout',
-    })
+    wx.clearStorageSync()
+    app.showLoading()
+    setTimeout(() => {
+      app.hideLoading(0)
+      wx.reLaunch({ url: '/pages/user/user' })
+    }, 800)
   },
   //编辑资料
   edit() {

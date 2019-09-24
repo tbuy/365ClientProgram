@@ -49,6 +49,12 @@
 					"pathName": "pages/myOrder/myOrder",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"scene": null
 				}
 			]
 		}
