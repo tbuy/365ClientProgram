@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/user/user",
     "pages/classify/classify",
-    "pages/WXlogin/WXlogin",
     "pages/mobileLogin/mobileLogin",
     "pages/myOrder/myOrder",
     "pages/myOrderDetail/myOrderDetail",
