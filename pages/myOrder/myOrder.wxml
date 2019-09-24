@@ -1,14 +1,20 @@
-<wxs src="./../filter.wxs" module="filter"/>
+<wxs src="./../filter.wxs" module="filter" />
 <view>
-  <view class='tab theme_wordSize_small'>
+  <view class='tab'>
     <view wx:for="{{tab}}" wx:key="{{item.id}}" class='tab-item {{item.isHeightlight?"tab-item-active":""}}' bindtap='select' data-id="{{item.id}}">{{item.title}}</view>
   </view>
 
-  <view class="list theme_word_deep">
+  <view class="list">
     <view wx:for="{{list}}" wx:key="{{item.id}}" class="list-item" bindtap='goDetail' data-id="{{item.id}}">
-      <view>订单编号：{{item.order_code}}</view>
-      <view>订单内容：{{item.order_details}}</view>
-      <view>{{ filter.formatDate(item.created_at) }}</view>
+      <view class="item-number">
+        <view>{{item.order_code}}</view>
+        <view>{{item.type == 2?'已签约':item.type == 3?'二次签约':'已取消'}}</view>
+      </view>
+      <view class="item-content">
+        <view class="item-detail">{{item.order_details}}</view>
+        <view>地址：{{item.service_address}}</view>
+        <view class="item-time">{{ filter.formatDate(item.created_at) }}</view>
+      </view>
     </view>
   </view>
 </view>
