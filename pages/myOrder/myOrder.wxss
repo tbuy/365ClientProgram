@@ -8,7 +8,7 @@
 }
 
 .tab-item {
-  width: 150rpx;
+  width: 140rpx;
   text-align: center;
   line-height: 60rpx;
   box-sizing: border-box;
@@ -17,7 +17,7 @@
 
 .tab-item-active {
   color: #ff7832;
-  border-bottom: 8rpx solid #ff7832;
+  border-bottom: 6rpx solid #ff7832;
 }
 
 .list {
