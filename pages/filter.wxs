@@ -1,4 +1,4 @@
-//格式化时间搓
+//格式化时间搓（时分秒）
 function formatDate(time) {
   var date = getDate(time);
   var y = date.getFullYear();
@@ -14,8 +14,19 @@ function formatDate(time) {
   second = second < 10 ? ('0' + second) : second;
   return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
 }
+//格式化时间搓（日期）
+function formatDateDay(time) {
+  var date = getDate(time);
+  var y = date.getFullYear();
+  var m = date.getMonth() + 1;
+  m = m < 10 ? ('0' + m) : m;
+  var d = date.getDate();
+  d = d < 10 ? ('0' + d) : d;
+  return y + '-' + m + '-' + d;
+}
 module.exports = {
-  formatDate: formatDate
+  formatDate: formatDate,
+  formatDateDay: formatDateDay
 }
 
 

@@ -27,10 +27,13 @@
   <view class="public">
     <view class="title">订单明细</view>
     <view class="price ">
-      <view class="pub-title">订单总价</view>
+      <view class="pub-title">劳动报酬</view>
       <view>{{orderContent.wage}}元</view>
     </view>
-
+    <view class="price ">
+      <view class="pub-title">账户余额</view>
+      <view>{{orderContent.sign_user_account}}元</view>
+    </view>
   </view>
   <view class="public" wx:if="{{orderContent.order_contract.length > 0}}">
     <view class="title">合同</view>
