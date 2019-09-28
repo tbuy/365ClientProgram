@@ -53,11 +53,11 @@ Page({
     if (!this.data.isLogin) {
       if (e.currentTarget.dataset.id == 1 || e.currentTarget.dataset.id == 2) {
         app.showInfo('请先登录')
-      } else if (e.currentTarget.dataset.id == 3){
+      } else if (e.currentTarget.dataset.id == 3) {
         wx.makePhoneCall({
           phoneNumber: config.phone
         })
-      }else {
+      } else {
         app.showInfo('敬请期待')
       }
     } else {
@@ -69,7 +69,7 @@ Page({
         wx.makePhoneCall({
           phoneNumber: config.phone
         })
-      }else {
+      } else {
         app.showInfo('敬请期待')
       }
     }

@@ -1,4 +1,4 @@
-// pages/success/success.js
+const app = getApp();
 Page({
 
   /**
@@ -7,7 +7,9 @@ Page({
   data: {
 
   },
-
+  attention(){
+    app.showInfo('敬请期待')
+  },
   /**
    * 生命周期函数--监听页面加载
    */

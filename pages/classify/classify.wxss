@@ -1,5 +1,6 @@
 .classify{
   display: flex;
+  color: rgb(87, 87, 87);
 }
 .leftMenu {
   width: 30%;

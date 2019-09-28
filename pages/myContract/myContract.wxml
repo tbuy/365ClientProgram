@@ -87,7 +87,7 @@
       <view>{{contract.user_pay}} 元</view>
     </view>
     <view class="public">
-      <view>是否已发放</view>
+      <view>工资是否已发放</view>
       <view>{{contract.is_wage == 1?'否':'是'}}</view>
     </view>
   </view>

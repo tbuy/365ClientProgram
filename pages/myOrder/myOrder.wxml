@@ -4,7 +4,7 @@
     <view wx:for="{{tab}}" wx:key="{{item.id}}" class='tab-item {{item.isHeightlight?"tab-item-active":""}}' bindtap='select' data-id="{{item.id}}">{{item.title}}</view>
   </view>
 
-  <view class="list">
+  <view class="list" wx:if="{{list.length > 0}}">
     <view wx:for="{{list}}" wx:key="{{item.id}}" class="list-item" bindtap='goDetail' data-id="{{item.id}}">
       <view class="item-number">
         <view>{{item.order_code}}</view>
@@ -17,4 +17,6 @@
       </view>
     </view>
   </view>
+
+  <view wx:else class="nodata">暂无数据</view>
 </view>

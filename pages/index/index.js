@@ -23,21 +23,34 @@ Page({
     navContent:[
       {
         image:'/images/nav.png',
-        name: '新人专享'
+        name: '新人专享',
+        router: ''
       },
       {
         image: '/images/nav.png',
-        name: '家电清洗'
+        name: '家电清洗',
+        router: ''
       },
       {
         image: '/images/nav.png',
-        name: '每日抽奖'
+        name: '金牌保姆',
+        router: ''
       },
       {
         image: '/images/nav.png',
-        name: '新人专享'
+        name: '每日抽奖',
+        router: ''
       }
     ]
+  },
+  goItem(e){
+    if (e.currentTarget.dataset.router){
+      wx.navigateTo({
+        url: 'e.currentTarget.dataset.router',
+      })
+    }else{
+      app.showInfo('敬请期待')
+    }
   },
   /**
    * 生命周期函数--监听页面加载

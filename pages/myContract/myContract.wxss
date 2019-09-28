@@ -31,3 +31,6 @@
    padding: 0 40rpx;
   font-size: 32rpx;
 }
+image {
+  width: 100%;
+}

@@ -9,7 +9,7 @@
   </swiper>
 
   <view class="nav">
-    <view wx:for="{{navContent}}" wx:key="{{item.id}}" class="nav-item">
+    <view wx:for="{{navContent}}" wx:key="{{item.id}}" class="nav-item" bindtap="goItem">
       <image src="{{item.image}}"></image>
       <text>{{item.name}}</text>
     </view>

@@ -1,6 +1,6 @@
 <view class='container-p'>
 
-  <view class="tab theme_word_deep theme_wordSize_normal">
+  <view class="tab theme_wordSize_normal">
     <block wx:for="{{tab}}" wx:key="{{item.id}}">
       <view class="tab-item {{item.isSelected?'item-active':''}}" bindtap="select" data-index="{{index}}">{{item.name}}</view>
     </block>
@@ -15,7 +15,7 @@
       </block>
     </swiper>
 
-    <view class="list theme_wordSize_small theme_word_deep">
+    <view class="list theme_wordSize_small">
       <view wx:for="{{list}}" wx:key="{{item.id}}" class="list-item">
         <view class="item">
           <image class="item-image public_avatar" src="{{item.icon || '/images/avatar.png'}}"></image>
