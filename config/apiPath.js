@@ -9,6 +9,10 @@ module.exports = {
 
 
 
+
+    //获取用户信息 get {id}
+    getUser: apiPath + "/user/personal/getUser",
+
     //编辑用户信息 post {id,name}
     editUser: apiPath + "/user/personal/editUser",
 
@@ -28,7 +32,7 @@ module.exports = {
 
     
     //获取服务分类 get
-  getCategoryTree: apiPath + "/user/service/getCategoryTree",
+    getCategoryTree: apiPath + "/user/service/getCategoryTree",
 
     //获取服务分类列表 get {id}
     getCategoryDetail: apiPath + "/user/service/getCategoryDetail",

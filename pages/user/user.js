@@ -11,12 +11,14 @@ Page({
       iconClass: 'icon-order',
       title: '我的订单',
       router: '/pages/myOrder/myOrder'
-    }, {
-      id: 2,
-      iconClass: 'icon-resume',
-      title: '我的简历',
-      router: ''
-    }, {
+    }, 
+    // {
+    //   id: 2,
+    //   iconClass: 'icon-resume',
+    //   title: '我的简历',
+    //   router: ''
+    // }, 
+    {
       id: 3,
       iconClass: 'icon-customer',
       title: '联系客服',
@@ -37,7 +39,34 @@ Page({
     icon: '',
     userId: 1
   },
-  //获取用户信息
+  //获取信息
+  getUser(){
+    wx.request({
+      url: apiPath.getUser,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+        'accessToken': wx.getStorageSync('accessToken')
+      },
+      data: {
+        id: this.data.userId,
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          var _data = res.data.data
+          this.setData({
+            userName: _data.name || _data.phone,
+            icon: _data.icon,
+            userId: _data.id
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(111, err)
+      }
+    })
+  },
+  //获取用户信息（登录）
   bindGetUserInfo(e) {
     if (e.detail.encryptedData) {
       app.globalGetUserInfo(e)
@@ -113,6 +142,7 @@ Page({
         this.setData({
           isLogin: wx.getStorageSync('isLogin')
         })
+
         let _userInfo = JSON.parse(wx.getStorageSync('userInfo'))
         this.setData({
           userName: _userInfo.name || _userInfo.phone,
@@ -120,7 +150,6 @@ Page({
           userId: _userInfo.id
         })
         console.log(_userInfo)
-
       };
     } catch (e) {
 
