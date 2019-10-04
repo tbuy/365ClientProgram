@@ -3,13 +3,13 @@
 .tab {
   display: flex;
   justify-content: space-between;
-  padding: 0 40rpx;
+  padding: 0 20rpx;
   box-shadow: 5rpx 5rpx 10rpx #f5f5f5;
   color: rgb(87, 87, 87);
 }
 
 .tab-item {
-  width: 140rpx;
+  width: 160rpx;
   text-align: center;
   line-height: 60rpx;
   box-sizing: border-box;
@@ -39,6 +39,7 @@
 .item-content {
 padding: 30rpx;
 font-size: 30rpx;
+position: relative;
 }
 .item-content view {
   margin-top: 20rpx;
@@ -49,6 +50,20 @@ font-size: 30rpx;
 .item-detail {
   font-size: 34rpx;
   margin-top: 0!important;
+  display: flex;
+  justify-content: space-between;
+}
+.price {
+  color: red;
+}
+.call {
+  padding: 10rpx 20rpx;
+  border: 1rpx solid rgb(114, 113, 113);
+  color: rgb(114, 113, 113);
+  border-radius: 10rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
 }
 .nodata {
   color: rgb(114, 113, 113);

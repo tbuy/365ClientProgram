@@ -19,12 +19,12 @@ Page({
       },
       {
         id: 3,
-        title: "二次签约",
+        title: "售后匹配中",
         isHeightlight: false
       },
       {
         id: 4,
-        title: "已取消",
+        title: "已终止",
         isHeightlight: false
       },
     ],
@@ -80,6 +80,11 @@ Page({
   goDetail(e){
     wx.navigateTo({
       url: '/pages/myOrderDetail/myOrderDetail?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  call(){
+    wx.makePhoneCall({
+      phoneNumber: 18640476934
     })
   },
   /**
