@@ -26,20 +26,8 @@ Page({
     lastId: 0,
     isLast: true,
     pageNumber: 15,
-    //轮播
-    imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-    ],
-    //轮播点
-    indicatorDots: true,
-    autoplay: false,
-    //时间间隔
-    interval: 5000,
-    //滑动时长
-    duration: 400,
-    //轮播高度
-    SWIPER_HEIGHT: 200,
+    //广告位
+    adImage: [],
     height: '',
     id: 1,
     //表单
@@ -164,10 +152,11 @@ Page({
         }
       })
     }
-
-
-
-
+  },
+  goAdPositionContent(e) {
+    if (e.currentTarget.dataset.item) {
+      app.goAdPositionContent(e.currentTarget.dataset.item)
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -192,7 +181,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let _adPosition = JSON.parse(wx.getStorageSync('adPosition'))
+    if (_adPosition) {
+      this.setData({
+        adImage: _adPosition['S000005']['resource'],
+      })
+    }
   },
 
   /**

@@ -53,23 +53,16 @@
   <view class="public-card">
     <view class="title">签约信息</view>
     <view class="public">
-      <view>姓名</view>
+      <view>经纪人姓名</view>
       <view>{{contract.sign_manager_name}}</view>
     </view>
     <view class="public">
-      <view>签约时间</view>
-      <view>{{filter.formatDate(contract.sign_at)}}</view>
+      <view>经纪人编号</view>
+      <view>{{contract.sign_manager_name}}</view>
     </view>
-  </view>
-  <view class="public-card">
-    <view class="title">保险</view>
-    <view class="public">
-      <view>保险受益人</view>
-      <view>{{contract.insurance_benefit}}</view>
-    </view>
-    <view class="public">
-      <view>保险期</view>
-      <view>{{filter.formatDateDay(contract.insurance_start)}} 至 {{filter.formatDateDay(contract.insurance_end)}}</view>
+        <view class="public">
+      <view>经纪人电话</view>
+      <view>{{contract.sign_manager_name}}</view>
     </view>
   </view>
   <view class="public-card">
@@ -85,10 +78,6 @@
     <view class="public">
       <view>总费</view>
       <view>{{contract.user_pay}} 元</view>
-    </view>
-    <view class="public">
-      <view>工资是否已发放</view>
-      <view>{{contract.is_wage == 1?'否':'是'}}</view>
     </view>
   </view>
   <view class="public-card">

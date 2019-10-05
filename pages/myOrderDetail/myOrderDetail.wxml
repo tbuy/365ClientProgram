@@ -1,4 +1,4 @@
-<wxs src="./../filter.wxs" module="filter"/>
+<wxs src="./../filter.wxs" module="filter" />
 <view class="detail">
   <view class="public status theme_btn">订单{{orderContent.type == 2?'已签约':orderContent.type == 3?'二次签约':orderContent.type == 4?'已取消':'处理中'}}</view>
   <view class="public">
@@ -20,6 +20,18 @@
       <text>{{orderContent.service_address}}</text>
     </view>
     <view class="content">
+      <text class="pub-title ">服务人员姓名：</text>
+      <text>{{orderContent.sign_staff_name}}</text>
+    </view>
+    <view class="content">
+      <text class="pub-title ">服务人员电话：</text>
+      <text>{{orderContent.sign_staff_phone}}</text>
+    </view>
+    <view class="content">
+      <text class="pub-title ">服务人员编号：</text>
+      <text>{{orderContent.sign_staff_code}}</text>
+    </view>
+    <view class="content">
       <text class="pub-title ">服务时间：</text>
       <text>{{orderContent.service_duration}}</text>
     </view>
@@ -31,6 +43,10 @@
       <view>{{orderContent.wage}}元</view>
     </view>
     <view class="price ">
+      <view class="pub-title">服务费用</view>
+      <view>{{orderContent.sign_user_account}}元</view>
+    </view>
+    <view class="price ">
       <view class="pub-title">账户余额</view>
       <view>{{orderContent.sign_user_account}}元</view>
     </view>
@@ -39,11 +55,15 @@
     <view class="title">合同</view>
     <view wx:for="{{orderContent.order_contract}}" class="content {{orderContent.order_contract.length != index + 1 ? 'contract':''}}" bindtap='goDetail' data-id="{{item.id}}" wx:key="{{item.id}}">
       <view>
+        <text class="pub-title ">合同状态：</text>
+        <text>{{item.contract_code}}</text>
+      </view>
+      <view>
         <text class="pub-title ">合同编号：</text>
         <text>{{item.contract_code}}</text>
       </view>
       <view>
-        <text class="pub-title ">创建时间：</text>
+        <text class="pub-title ">签约时间：</text>
         <text>{{filter.formatDate(item.sign_at)}}</text>
       </view>
     </view>

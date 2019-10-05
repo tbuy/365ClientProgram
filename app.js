@@ -1,7 +1,7 @@
 const apiPath = require('./config/apiPath.js');
 App({
   onLaunch: function () {
-  
+
   },
   //消息框
   showInfo: (title = "error", icon = "none") => {
@@ -14,7 +14,7 @@ App({
     })
   },
   //模态框
-  showModal: (content = "消息框", confirm=()=>{},cancel=()=>{})=>{
+  showModal: (content = "消息框", confirm = () => { }, cancel = () => { }) => {
     wx.showModal({
       content: content,
       success(res) {
@@ -27,14 +27,14 @@ App({
     })
   },
   //loading
-  showLoading: (title = "加载中")=>{
+  showLoading: (title = "加载中") => {
     wx.showLoading({
       title: title
     })
 
   },
-  hideLoading:(time=2000)=>{
-    setTimeout(()=> {
+  hideLoading: (time = 2000) => {
+    setTimeout(() => {
       wx.hideLoading()
     }, time)
   },
@@ -152,22 +152,58 @@ App({
         if (!res.authSetting['scope.userInfo']) {
           wx.openSetting({
             success: (authSetting) => {
-              console.log(22,authSetting)
+              console.log(22, authSetting)
             }
           });
         }
       },
       fail: (err) => {
-        console.log(33,err);
+        console.log(33, err);
       }
     });
 
+  },
+  //获取广告位
+  getAdPosition() {
+    wx.request({
+      url: apiPath.getAdPosition,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          let _data = res.data.data;
+          this.globalData.adPosition = _data
+          wx.setStorageSync('adPosition', JSON.stringify(_data));
+        }
+      },
+      fail: (err) => {
+        this.showInfo(res.data.message)
+      }
+    })
+  },
+  //广告位跳转
+  goAdPositionContent(ad) {
+    if (ad.jump_type == 'category') {
+      wx.navigateTo({
+        url: '/pages/classifyContent/classifyContent?id=' + ad.client_category_id,
+      })
+    } else if (ad.jump_type == 'activity') {
+      wx.navigateTo({
+        url: '/pages/activity/activity?url=' + ad.activity_url,
+      })
+    } else {
+      this.showInfo('敬请期待')
+    }
   },
   //全局数据
   globalData: {
     //权限详情
     detail: null,
     userInfo: null,
+    //广告位
+    adPosition: {}
   }
 
 })

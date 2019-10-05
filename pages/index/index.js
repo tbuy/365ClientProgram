@@ -1,64 +1,67 @@
 const app = getApp();
-// pages/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    //轮播
-    imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-    ],
+    //轮播位
+    adBanner: [],
+    //中间广告位
+    adMiddle: [],
+    //推荐广告位
+    adRecommend1: [],
+    adRecommend2: [],
     //轮播点
     indicatorDots: true,
-    autoplay: false,
+    autoplay: true,
     //时间间隔
-    interval: 5000,
+    interval: 3000,
     //滑动时长
     duration: 400,
-    videoContext:'',
+    videoContext: '',
     //导航
-    navContent:[
-      {
-        image:'/images/nav.png',
-        name: '新人专享',
-        router: ''
-      },
-      {
-        image: '/images/nav.png',
-        name: '家电清洗',
-        router: ''
-      },
-      {
-        image: '/images/nav.png',
-        name: '金牌保姆',
-        router: ''
-      },
-      {
-        image: '/images/nav.png',
-        name: '每日抽奖',
-        router: ''
-      }
+    navContent: [{
+      image: '/images/nav.png',
+      name: '新人专享',
+      router: ''
+    },
+    {
+      image: '/images/nav.png',
+      name: '家电清洗',
+      router: ''
+    },
+    {
+      image: '/images/nav.png',
+      name: '金牌保姆',
+      router: ''
+    },
+    {
+      image: '/images/nav.png',
+      name: '每日抽奖',
+      router: ''
+    }
     ]
   },
-  goItem(e){
-    if (e.currentTarget.dataset.router){
+  goItem(e) {
+    if (e.currentTarget.dataset.router) {
       wx.navigateTo({
         url: 'e.currentTarget.dataset.router',
       })
-    }else{
+    } else {
       app.showInfo('敬请期待')
+    }
+  },
+  goAdPositionContent(e) {
+    if (e.currentTarget.dataset.item) {
+      app.goAdPositionContent(e.currentTarget.dataset.item)
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
-
+    app.getAdPosition()
   },
 
   /**
@@ -66,6 +69,16 @@ Page({
    */
   onReady: function () {
     this.videoContext = wx.createVideoContext('myVideo')
+    let _adPosition = JSON.parse(wx.getStorageSync('adPosition'))
+    if (_adPosition) {
+      this.setData({
+        adBanner: _adPosition['S000001']['resource'],
+        adMiddle: _adPosition['S000002']['resource'],
+        adRecommend1: _adPosition['S000003']['resource'],
+        adRecommend2: _adPosition['S000004']['resource']
+      })
+    }
+
   },
 
   /**

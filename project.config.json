@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -58,10 +58,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "订单详情",
 					"pathName": "pages/myOrderDetail/myOrderDetail",
-					"query": "",
+					"query": "id=8",
 					"scene": null
 				},
 				{

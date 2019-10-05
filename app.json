@@ -9,7 +9,8 @@
     "pages/editUser/editUser",
     "pages/classifyContent/classifyContent",
     "pages/success/success",
-    "pages/myContract/myContract"
+    "pages/myContract/myContract",
+    "pages/activity/activity"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -38,6 +38,11 @@ module.exports = {
     getCategoryDetail: apiPath + "/user/service/getCategoryDetail",
 
     //立即预约提交表单 post {phone, name}
-    submitRequire: apiPath + "/user/service/submitRequire"
+    submitRequire: apiPath + "/user/service/submitRequire",
+
+
+
+    //广告位
+    getAdPosition: apiPath + "/user/common/getAdPosition"
 
 }

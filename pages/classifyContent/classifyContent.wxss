@@ -12,13 +12,8 @@
   color: #ff7832;
   border-bottom: 5rpx solid #ff7832;
 }
-swiper {
-  width: 100%;
-  height: 200rpx;
-  border-radius: 10rpx;
-  overflow: hidden;
-}
-.slide-image {
+
+.ad-image {
   width: 100%;
   height: 200rpx;
   border-radius: 10rpx;

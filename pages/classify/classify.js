@@ -8,7 +8,9 @@ Page({
    */
   data: {
     menuList: [],
-    selectedIndex: 0
+    selectedIndex: 0,
+    //广告位
+    adImage: []
   },
   getMenuList() {
     wx.showNavigationBarLoading()
@@ -80,7 +82,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let _adPosition = JSON.parse(wx.getStorageSync('adPosition'))
+    if (_adPosition) {
+      this.setData({
+        adImage: _adPosition['S000006']['resource'],
+      })
+    }
   },
 
   /**
