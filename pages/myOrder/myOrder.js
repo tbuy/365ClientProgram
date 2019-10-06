@@ -82,9 +82,9 @@ Page({
       url: '/pages/myOrderDetail/myOrderDetail?id=' + e.currentTarget.dataset.id,
     })
   },
-  call(){
+  call(e){
     wx.makePhoneCall({
-      phoneNumber: '18640476934'
+      phoneNumber: e.currentTarget.dataset.phone
     })
   },
   /**

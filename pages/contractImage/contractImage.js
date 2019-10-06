@@ -8,7 +8,7 @@ Page({
   data: {
     contract:null
   },
-  getContract(id){
+  getContract(id) {
     wx.request({
       url: apiPath.getContract,
       method: 'get',
@@ -30,11 +30,6 @@ Page({
       fail: (err) => {
         console.log(111, err)
       }
-    })
-  },
-  goContractImage(e){
-    wx.navigateTo({
-      url: "/pages/contractImage/contractImage?id=" + e.currentTarget.dataset.id,
     })
   },
   /**

@@ -14,12 +14,12 @@
         <view class="item-detail">
           <view>{{item.work_type}}</view>
           <view class="price">余额:
-            <text> 3000元</text>
+            <text> {{item.sign_user_account}}元</text>
           </view>
         </view>
         <view>{{item.service_address}}</view>
         <view class="item-time">服务周期：{{ filter.formatDateDay(item.sign_service_start)+ " 至 " + filter.formatDateDay(item.sign_service_end) }}</view>
-        <view class="call" catchtap="call">联系经纪人</view>
+        <view class="call" catchtap="call" data-phone="{{item.agent_manager_phone}}">联系经纪人</view>
       </view>
     </view>
   </view>

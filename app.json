@@ -10,7 +10,8 @@
     "pages/classifyContent/classifyContent",
     "pages/success/success",
     "pages/myContract/myContract",
-    "pages/activity/activity"
+    "pages/activity/activity",
+    "pages/contractImage/contractImage"
   ],
   "window": {
     "backgroundTextStyle": "light",

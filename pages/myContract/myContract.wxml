@@ -84,7 +84,7 @@
     <view class="title">备注</view>
     <view class="remarks">{{contract.remarks}}</view>
   </view>
-  <view wx:for="{{contract.files}}" wx:key="{{item.id}}">
-    <image src="{{item.url}}"></image>
+  <view class="public-card">
+    <view bindtap="goContractImage" data-id="{{contract.id}}">查看合同范本</view>
   </view>
 </view>
