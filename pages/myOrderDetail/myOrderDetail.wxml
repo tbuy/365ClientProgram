@@ -1,6 +1,6 @@
 <wxs src="./../filter.wxs" module="filter" />
 <view class="detail">
-  <view class="public status theme_btn">订单{{orderContent.type == 2?'已签约':orderContent.type == 3?'二次签约':orderContent.type == 4?'已取消':'处理中'}}</view>
+  <view class="public status theme_btn">订单{{orderContent.type == 2?'已签约':orderContent.type == 3?'售后匹配中':orderContent.type == 4?'已终止':'处理中'}}</view>
   <view class="public">
     <view class="title">订单详情</view>
     <view class="content">
@@ -56,7 +56,7 @@
     <view wx:for="{{orderContent.order_contract}}" class="content {{orderContent.order_contract.length != index + 1 ? 'contract':''}}" bindtap='goDetail' data-id="{{item.id}}" wx:key="{{item.id}}">
       <view>
         <text class="pub-title ">合同状态：</text>
-        <text>{{item.contract_code}}</text>
+        <text>{{item.type == 1? '待执行':item.type == 2?'执行中':'已终止'}}</text>
       </view>
       <view>
         <text class="pub-title ">合同编号：</text>

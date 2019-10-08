@@ -185,11 +185,11 @@ App({
   },
   //广告位跳转
   goAdPositionContent(ad) {
-    if (ad.jump_type == 'category') {
+    if (ad.jump_type == 1) {
       wx.navigateTo({
         url: '/pages/classifyContent/classifyContent?id=' + ad.client_category_id,
       })
-    } else if (ad.jump_type == 'activity') {
+    } else if (ad.jump_type == 2) {
       wx.navigateTo({
         url: '/pages/activity/activity?url=' + ad.activity_url,
       })
