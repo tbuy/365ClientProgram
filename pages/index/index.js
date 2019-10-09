@@ -1,4 +1,6 @@
 const app = getApp();
+const apiPath = require('../../config/apiPath.js');
+
 Page({
 
   /**
@@ -38,10 +40,12 @@ Page({
     },
     {
       image: '/images/nav.png',
-      name: '每日抽奖',
+      name: '精彩视频',
       router: ''
     }
-    ]
+    ],
+    adPosition: null
+
   },
   goItem(e) {
     if (e.currentTarget.dataset.router) {
@@ -52,6 +56,32 @@ Page({
       app.showInfo('敬请期待')
     }
   },
+  //获取广告位
+  getAdPosition() {
+    wx.request({
+      url: apiPath.getAdPosition,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          let _data = res.data.data;
+          this.setData({
+            adPosition: _data,
+            adBanner: _data['S000001']['resource'],
+            adMiddle: _data['S000002']['resource'],
+            adRecommend1: _data['S000003']['resource'],
+            adRecommend2: _data['S000004']['resource']
+          })
+          wx.setStorageSync('adPosition', JSON.stringify(_data));
+        }
+      },
+      fail: (err) => {
+        app.showInfo(res.data.message)
+      }
+    })
+  },
   goAdPositionContent(e) {
     if (e.currentTarget.dataset.item) {
       app.goAdPositionContent(e.currentTarget.dataset.item)
@@ -61,7 +91,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getAdPosition()
+    this.getAdPosition()
   },
 
   /**
@@ -69,15 +99,7 @@ Page({
    */
   onReady: function () {
     this.videoContext = wx.createVideoContext('myVideo')
-    let _adPosition = JSON.parse(wx.getStorageSync('adPosition'))
-    if (_adPosition) {
-      this.setData({
-        adBanner: _adPosition['S000001']['resource'],
-        adMiddle: _adPosition['S000002']['resource'],
-        adRecommend1: _adPosition['S000003']['resource'],
-        adRecommend2: _adPosition['S000004']['resource']
-      })
-    }
+
 
   },
 

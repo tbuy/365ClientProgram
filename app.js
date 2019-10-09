@@ -8,7 +8,7 @@ App({
     wx.showToast({
       title: title,
       icon: icon,
-      duration: 1500,
+      duration: 800,
       mask: true
 
     })
@@ -33,7 +33,7 @@ App({
     })
 
   },
-  hideLoading: (time = 2000) => {
+  hideLoading: (time = 800) => {
     setTimeout(() => {
       wx.hideLoading()
     }, time)
@@ -163,38 +163,17 @@ App({
     });
 
   },
-  //获取广告位
-  getAdPosition() {
-    wx.request({
-      url: apiPath.getAdPosition,
-      method: 'get',
-      header: {
-        'Content-Type': 'application/json',
-      },
-      success: (res) => {
-        if (res.data.code == 0) {
-          let _data = res.data.data;
-          this.globalData.adPosition = _data
-          wx.setStorageSync('adPosition', JSON.stringify(_data));
-        }
-      },
-      fail: (err) => {
-        this.showInfo(res.data.message)
-      }
-    })
-  },
+
   //广告位跳转
   goAdPositionContent(ad) {
     if (ad.jump_type == 1) {
       wx.navigateTo({
-        url: '/pages/classifyContent/classifyContent?id=' + ad.client_category_id,
-      })
-    } else if (ad.jump_type == 2) {
-      wx.navigateTo({
         url: '/pages/activity/activity?url=' + ad.activity_url,
       })
     } else {
-      this.showInfo('敬请期待')
+      wx.navigateTo({
+        url: '/pages/classifyContent/classifyContent?id=' + ad.client_category_id,
+      })
     }
   },
   //全局数据
@@ -202,8 +181,6 @@ App({
     //权限详情
     detail: null,
     userInfo: null,
-    //广告位
-    adPosition: {}
   }
 
 })

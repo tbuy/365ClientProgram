@@ -63,7 +63,7 @@ position: relative;
   border-radius: 10rpx;
   position: absolute;
   right: 20rpx;
-  bottom: 20rpx;
+  bottom: 80rpx;
 }
 .nodata {
   color: rgb(114, 113, 113);

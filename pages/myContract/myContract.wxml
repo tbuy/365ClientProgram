@@ -85,6 +85,6 @@
     <view class="remarks">{{contract.remarks}}</view>
   </view>
   <view class="public-card">
-    <view bindtap="goContractImage" data-id="{{contract.id}}">查看合同范本</view>
+    <view bindtap="goContractImage" data-id="{{contract.id}}" class="contractBtn">查看合同范本</view>
   </view>
 </view>

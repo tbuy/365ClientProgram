@@ -31,4 +31,13 @@
    padding: 0 40rpx;
   font-size: 32rpx;
 }
-
+.contractBtn {
+  padding: 10rpx 20rpx;
+  width: 60%;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 40rpx auto 0;
+  border: 1rpx solid rgb(114, 113, 113);
+  color: rgb(114, 113, 113);
+  border-radius: 10rpx;
+}
