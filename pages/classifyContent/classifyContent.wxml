@@ -16,8 +16,7 @@
               <view>{{ item.name || '宋阿姨'}}</view>
               <view style="marginTop: 5rpx">
                 <text wx:if="{{item.age}}">{{ item.age }}岁</text>
-                <text wx:if="{{item.birthplace}}"> | {{ item.birthplace }}</text>
-                <text wx:if="{{item.experiences}}"> | 从业{{ item.experiences }}年</text>
+                <text wx:if="{{item.education}}"> | 从业{{ item.education }}年</text>
                 <text wx:if="{{item.education_name && item.education_name!='暂无学历'}}"> | {{ item.education_name }}</text>
               </view>
             </view>
@@ -30,8 +29,8 @@
   </view>
   <!-- 体验服务 -->
   <view wx:else>
-  <view class="imageList">
-    <image wx:for="{{imageFile}}" wx:key="{{item.id}}" src="{{item}}" class="image" />
+    <view class="imageList">
+      <image wx:for="{{imageFile}}" wx:key="{{item.id}}" src="{{item}}" class="image" />
     </view>
     <view class="classifyOrder">
       <view class="title theme_wordSize_normal">欢迎体验365家政保姆服务</view>

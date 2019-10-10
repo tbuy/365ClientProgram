@@ -24,22 +24,22 @@ Page({
     videoContext: '',
     //导航
     navContent: [{
-      image: '/images/nav.png',
+      image: '/images/nav-home1.png',
       name: '新人专享',
       router: ''
     },
     {
-      image: '/images/nav.png',
+      image: '/images/nav-home2.png',
       name: '家电清洗',
       router: ''
     },
     {
-      image: '/images/nav.png',
+      image: '/images/nav-home3.png',
       name: '金牌保姆',
       router: ''
     },
     {
-      image: '/images/nav.png',
+      image: '/images/nav-home4.png',
       name: '精彩视频',
       router: ''
     }

@@ -29,7 +29,7 @@
 image {
   width: 100%;
   height: 140rpx;
-  background-color: pink;
+  background-color: #ff7832;
   border-radius: 10rpx;
 }
 .item {
