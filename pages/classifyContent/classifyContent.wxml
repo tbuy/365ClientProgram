@@ -30,7 +30,7 @@
   <!-- 体验服务 -->
   <view wx:else>
     <view class="imageList">
-      <image wx:for="{{imageFile}}" wx:key="{{item.id}}" src="{{item}}" class="image" />
+      <image wx:for="{{imageFile}}" mode="widthFix" wx:key="{{item.id}}" src="{{item}}" class="image" />
     </view>
     <view class="classifyOrder">
       <view class="title theme_wordSize_normal">欢迎体验365家政保姆服务</view>

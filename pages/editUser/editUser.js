@@ -63,12 +63,6 @@ Page({
       success: (res) => {
         if (res.data.code == 0) {
 
-          wx.setStorageSync('userInfo', JSON.stringify({
-            name: this.data.name,
-            icon: this.data.icon,
-            id: this.data.id,
-            phone: this.data.phone
-          }));
           app.hideLoading(0)
           app.showInfo(res.data.message)
           wx.reLaunch({
@@ -87,11 +81,38 @@ Page({
       name: e.detail.value
     })
   },
+  //获取信息
+  getUser() {
+    wx.request({
+      url: apiPath.getUser,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+        'accessToken': wx.getStorageSync('accessToken')
+      },
+      data: {
+        id: wx.getStorageSync('userId'),
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          var _data = res.data.data
+          this.setData({
+            name: _data.name || _data.phone,
+            icon: _data.icon,
+            id: _data.id
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(111, err)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getUser()
   },
 
   /**
@@ -105,13 +126,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let _userInfo = JSON.parse(wx.getStorageSync('userInfo'));
-    this.setData({
-      name: _userInfo.name,
-      icon: _userInfo.icon,
-      id: _userInfo.id,
-      phone: _userInfo.phone
-    })
+
   },
 
   /**

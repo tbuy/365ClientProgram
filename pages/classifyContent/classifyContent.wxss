@@ -60,19 +60,13 @@
   font-size: 24rpx;
 }
 .classifyOrder {
-  /* background-color: #fff;
-  border-top: 1rpx solid #ccc;
-  width: 100%;
-  bottom: 0;
-  position: fixed; */
   padding: 0 0 40rpx 0;
 }
 .imageList {
-  /* margin-bottom: 420rpx; */
 }
 .image {
   width: 100%;
-  display: inline-block;
+  display: block;
 
 }
 .title {

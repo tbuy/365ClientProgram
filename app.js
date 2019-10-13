@@ -79,14 +79,8 @@ App({
             },
             success: (res) => {
               if (res.data.code == 0) {
-                let _userInfo = {
-                  id: res.data.data.id,
-                  name: res.data.data.name,
-                  icon: res.data.data.icon,
-                  phone: res.data.data.phone
-                };
-                wx.setStorageSync('userInfo', JSON.stringify(_userInfo));
                 wx.setStorageSync('accessToken', res.data.data.access_token);
+                wx.setStorageSync('userId', res.data.data.id);
                 wx.setStorageSync('isLogin', true);
                 callback();
               }
@@ -118,17 +112,8 @@ App({
       wx.checkSession({
         // session_key 未过期
         success: () => {
-          // 直接从Storage中获取用户信息
-          if (wx.getStorageSync('userInfo')) {
-            this.globalData.userInfo = JSON.parse(wx.getStorageSync('userInfo'));
             wx.setStorageSync('isLogin', true);
             console.log('已登录')
-          } else {
-            this.showInfo('缓存信息缺失');
-            console.log(1)
-            wx.setStorageSync('isLogin', false);
-          }
-
         },
         // session_key 过期
         fail: () => {
@@ -163,7 +148,33 @@ App({
     });
 
   },
-
+  //获取信息
+  getUser(){
+    wx.request({
+      url: apiPath.getUser,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+        'accessToken': wx.getStorageSync('accessToken')
+      },
+      data: {
+        id: this.data.userId,
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          var _data = res.data.data
+          this.setData({
+            userName: _data.name || _data.phone,
+            icon: _data.icon,
+            userId: _data.id
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(111, err)
+      }
+    })
+  },
   //广告位跳转
   goAdPositionContent(ad) {
     if (ad.jump_type == 1) {
@@ -180,7 +191,6 @@ App({
   globalData: {
     //权限详情
     detail: null,
-    userInfo: null,
   }
 
 })

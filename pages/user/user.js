@@ -1,5 +1,7 @@
 const app = getApp();
 const config = require('../../config/config.js');
+const apiPath = require('../../config/apiPath.js');
+
 Page({
 
   /**
@@ -12,24 +14,18 @@ Page({
       title: '我的订单',
       router: '/pages/myOrder/myOrder'
     }, 
-    // {
-    //   id: 2,
-    //   iconClass: 'icon-resume',
-    //   title: '我的简历',
-    //   router: ''
-    // }, 
     {
-      id: 3,
+      id: 2,
       iconClass: 'icon-customer',
       title: '联系客服',
       router: ''
     }, {
-      id: 4,
+      id: 3,
       iconClass: 'icon-about',
       title: '关于我们',
       router: ''
     }, {
-      id: 5,
+      id: 4,
       iconClass: 'icon-opinion',
       title: '意见反馈',
       router: ''
@@ -37,7 +33,7 @@ Page({
     isLogin: false,
     userName: '',
     icon: '',
-    userId: 1
+    userId: 0
   },
   //获取信息
   getUser(){
@@ -49,7 +45,7 @@ Page({
         'accessToken': wx.getStorageSync('accessToken')
       },
       data: {
-        id: this.data.userId,
+        id: wx.getStorageSync('userId'),
       },
       success: (res) => {
         if (res.data.code == 0) {
@@ -116,7 +112,7 @@ Page({
   //编辑资料
   edit() {
     wx.navigateTo({
-      url: '/pages/editUser/editUser',
+      url: '/pages/editUser/editUser'
     })
   },
   /**
@@ -127,36 +123,16 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    try {
       app.checkLogin();
       if (wx.getStorageSync('isLogin')) {
         this.setData({
           isLogin: wx.getStorageSync('isLogin')
         })
-
-        let _userInfo = JSON.parse(wx.getStorageSync('userInfo'))
-        this.setData({
-          userName: _userInfo.name || _userInfo.phone,
-          icon: _userInfo.icon,
-          userId: _userInfo.id
-        })
-        console.log(_userInfo)
+        this.getUser()
       };
-    } catch (e) {
-
-    }
-
-
   },
 
   /**

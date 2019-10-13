@@ -1,5 +1,5 @@
   <view>
   <view wx:for="{{contract.files}}" wx:key="{{item.id}}">
-    <image src="{{item.url}}"></image>
+    <image mode="widthFix" src="{{item.url}}"></image>
   </view>
   </view>
