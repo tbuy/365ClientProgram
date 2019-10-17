@@ -41,9 +41,9 @@
 
 2019.10.13 buglist
 
-1. 所有页面loading
-2. 所有页面title
-3. 分类页面图片
-4. 分类列表广告位一张
+1. 所有页面loading f
+2. 所有页面title f
+3. 分类页面图片 f
+4. 分类列表广告位一张 f
 5. 体验服务弹出预约
-6. 登录loading
+6. 登录loading f
