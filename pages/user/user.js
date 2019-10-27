@@ -78,7 +78,7 @@ Page({
     if (!this.data.isLogin) {
       if (e.currentTarget.dataset.id == 1) {
         app.showInfo('请先登录')
-      } else if (e.currentTarget.dataset.id == 2) {
+      } else if (e.currentTarget.dataset.id == 2 || e.currentTarget.dataset.id == 4) {
         wx.makePhoneCall({
           phoneNumber: config.phone
         })
@@ -90,7 +90,7 @@ Page({
         wx.navigateTo({
           url: e.currentTarget.dataset.router + "?id=" + this.data.userId,
         })
-      } else if (e.currentTarget.dataset.id == 2) {
+      } else if (e.currentTarget.dataset.id == 2 || e.currentTarget.dataset.id == 4) {
         wx.makePhoneCall({
           phoneNumber: config.phone
         })
@@ -115,12 +115,6 @@ Page({
       url: '/pages/editUser/editUser'
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -134,39 +128,8 @@ Page({
         this.getUser()
       };
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  
+  onTabItemTap(item) {
+    this.getUser()
   }
 })

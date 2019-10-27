@@ -1,3 +1,15 @@
 <view>
-<image mode="widthFix" src="{{url}}"></image>
+  <image mode="widthFix" src="{{url}}"></image>
+  <view class="public_button_big theme_btn button bottomBtn" bindtap="advisory">了解活动详情</view>
+    <!-- 表单弹层 -->
+  <view class="formMark" wx:if="{{isShowForm}}">
+    <view class="form">
+      <view bindtap="close" class="close iconfont icon-close icon-color"></view>
+      <form bindsubmit="formSubmitSuccess">
+        <input name="name" placeholder="请输入您的姓名" maxlength="10" type="text" placeholder-style="color:#ccc" value="{{name}}" bindinput='nameInput' />
+        <input name="phone" placeholder="请输入您的手机号" maxlength="11" type="text" placeholder-style="color:#ccc" value="{{phone}}" bindinput='phoneInput' />
+        <button class='public_button_big theme_btn button' form-type="submit">提交</button>
+      </form>
+    </view>
+  </view>
 </view>

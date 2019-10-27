@@ -8,7 +8,7 @@
   <view class="container-p" wx:if="{{isShowSelect}}">
     <scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
       <image src="{{adImage[0].url}}" class="ad-image" bindtap="goAdPositionContent" data-item="{{adImage[0]}}" />
-      <view class="list theme_wordSize_small">
+      <view wx:if="{{list.length>0}}" class="list theme_wordSize_small">
         <view wx:for="{{list}}" wx:key="{{item.id}}" class="list-item">
           <view class="item">
             <image class="item-image public_avatar" src="{{item.icon || '/images/avatar.png'}}"></image>
@@ -25,21 +25,16 @@
           <view class="remark theme_word_normal" wx:if="{{item.working_experience}}">备注：{{ item.working_experience }}</view>
         </view>
       </view>
+      <view wx:else class="nodata">暂无数据</view>
     </scroll-view>
   </view>
   <!-- 体验服务 -->
   <view wx:else>
-    <view class="imageList">
+    <view class="imageList" wx:if="{{imageFile.length>0}}">
       <image wx:for="{{imageFile}}" mode="widthFix" wx:key="{{item.id}}" src="{{item}}" class="image" />
     </view>
-    <view class="classifyOrder">
-      <view class="title theme_wordSize_normal">欢迎体验365家政保姆服务</view>
-      <form bindsubmit="formSubmitSuccess">
-        <input name="name" placeholder="请输入您的姓名" maxlength="10" type="text" placeholder-style="color:#ccc" value="{{name}}" bindinput='nameInput' />
-        <input name="phone" placeholder="请输入您的手机号" maxlength="11" type="text" placeholder-style="color:#ccc" value="{{phone}}" bindinput='phoneInput' />
-        <button class='public_button_big theme_btn button' form-type="submit">立即预约</button>
-      </form>
-    </view>
+    <view wx:else class="nodata">暂无数据</view>
+    <view class="public_button_big theme_btn button bottomBtn" bindtap="advisory">咨询价格</view>
   </view>
   <!-- 表单弹层 -->
   <view class="formMark" wx:if="{{isShowForm}}">

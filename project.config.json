@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -82,6 +82,13 @@
 					"id": -1,
 					"name": "分类",
 					"pathName": "pages/classifyContent/classifyContent",
+					"query": "id=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成功页",
+					"pathName": "pages/success/success",
 					"query": "id=8",
 					"scene": null
 				}

@@ -67,9 +67,3 @@ position: relative;
   bottom: 30rpx;
   font-size: 26rpx;
 }
-.nodata {
-  color: rgb(114, 113, 113);
-  font-size: 34rpx;
-  text-align: center;
-  margin: 300rpx;
-}

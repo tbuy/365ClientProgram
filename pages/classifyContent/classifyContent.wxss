@@ -18,8 +18,7 @@
   width: 100%;
   height: 200rpx;
   border-radius: 10rpx;
-  background-color: #ff7832;
-
+  background-color: rgb(243, 243, 243);
 }
 .list {
   margin-top: 20rpx;
@@ -34,6 +33,7 @@
 }
 .item-image {
   float: left;
+  background-color: rgb(243, 243, 243);
 }
 .intro {
   float: left;
@@ -51,6 +51,15 @@
 }
 .btn::after {
   border: 0 none;
+}
+.bottomBtn {
+  width: 80%;
+  text-align: center;
+  line-height: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  bottom: 50rpx;
+  left: 10%;
 }
 .remark {
   padding: 20rpx;
@@ -81,8 +90,6 @@ input {
   padding: 15rpx 30rpx;
   font-size: 30rpx;
 }
-
-
 .button {
   margin-top: 40rpx;
   width: 600rpx;
@@ -106,7 +113,6 @@ input {
   bottom: 0;
   position: absolute;
 }
-
 .close {
   position: absolute;
   left: 20rpx;

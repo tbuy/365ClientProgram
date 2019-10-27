@@ -17,13 +17,11 @@
 }
 
 .text2 {
-  margin-bottom: 80rpx;
+  margin-bottom: 50rpx;
 }
 
-.btn {
-  font-size: 32rpx;
+.tip {
+  font-size: 26rpx;
+  color: rgb(155, 155, 155);
 }
 
-.btn:after {
-  border: 0 none;
-}
