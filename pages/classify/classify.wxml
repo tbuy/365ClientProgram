@@ -7,7 +7,7 @@
       <image src='{{menuList[selectedIndex].banner_url}}'></image>
     </view>
     <view class='item' v-if="menuList[selectedIndex].children">
-      <view wx:for="{{menuList[selectedIndex].children}}" wx:key="{index}" class='itemName theme_wordSize_small' bindtap='goContent' data-id="{{item.id}}">{{item.name}}</view>
+      <view wx:for="{{menuList[selectedIndex].children}}" wx:key="{index}" class='itemName' bindtap='goContent' data-id="{{item.id}}">{{item.name}}</view>
       <view wx:for="{{2}}" wx:key="{index}" class='itemName' style='height: 0'></view>
     </view>
   </view>

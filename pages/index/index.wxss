@@ -36,6 +36,8 @@ swiper {
 
 .centerAd {
   margin-top: 50rpx;
+  height: 200rpx;
+  width: 100%;
   background-color: rgb(243, 243, 243);
   position: relative;
 }
