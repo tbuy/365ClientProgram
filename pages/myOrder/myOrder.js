@@ -29,7 +29,7 @@ Page({
       },
     ],
     selectedId: 0,
-    userId: 1,
+    userId: 0,
     list:[],
     isLast: false,
     lastId: 1
@@ -91,6 +91,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      userId: options.id
+    })
     this.getOrderList()
   },
 

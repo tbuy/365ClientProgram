@@ -8,7 +8,8 @@
     <view wx:for="{{list}}" wx:key="{{item.id}}" class="list-item" bindtap='goDetail' data-id="{{item.id}}">
       <view class="item-number">
         <view>{{item.order_code}}</view>
-        <view>{{item.type == 2?'已签约':item.type == 3?'售后匹配中':'已终止'}}</view>
+        <view wx:if="{{item.type == 2}}" class="type-color">已签约</view>
+        <view wx:else>{{item.type == 3?'售后匹配中':'已终止'}}</view>
       </view>
       <view class="item-content">
         <view class="item-detail">

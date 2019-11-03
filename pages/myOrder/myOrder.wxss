@@ -30,6 +30,9 @@
   border-bottom: 1rpx solid #f5f5f5;
   box-shadow: 5rpx 10rpx 10rpx #f5f5f5;
 }
+.type-color {
+  color: #ff7832;
+}
 .item-number {
   border-bottom: 1rpx solid #f5f5f5;
   display: flex;
@@ -54,7 +57,7 @@ position: relative;
   justify-content: space-between;
 }
 .price {
-  color: #ff7832;
+  color: red;
   font-size: 28rpx;
 }
 .call {
