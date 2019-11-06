@@ -31,8 +31,12 @@ Page({
     selectedId: 0,
     userId: 0,
     list:[],
-    isLast: false,
-    lastId: 1
+    // 分页
+    lastId: 0,
+    isLast: true,
+    pageNumber: 4,
+    height: '',
+
   },
   select(e){
     let _tab = this.data.tab;
@@ -47,10 +51,12 @@ Page({
       tab: _tab,
       selectedId: e.currentTarget.dataset.id
     })
-    this.getOrderList()
+    this.getOrderList(0)
 
   },
-  getOrderList(){
+  getOrderList(lastId){
+    wx.showNavigationBarLoading()
+
       wx.request({
         url: apiPath.getOrderList,
         method: 'get',
@@ -61,19 +67,23 @@ Page({
         data: {
           type: this.data.selectedId,
           id: this.data.userId,
+          lastId: lastId,
+          pageNumber: this.data.pageNumber
         },
         success: (res) => {
           if (res.data.code == 0) {
             var _data = res.data.data
             this.setData({
-              list: _data.data,
+              list: this.data.list.concat(_data.data),
               isLast: _data.isLast,
               lastId: _data.lastId
             })
           }
+          wx.hideNavigationBarLoading()
         },
         fail: (err) => {
-          console.log(111, err)
+          app.showInfo(res.data.message)
+
         }
       })
   },
@@ -87,6 +97,17 @@ Page({
       phoneNumber: e.currentTarget.dataset.phone
     })
   },
+  upper(e) {
+    wx.startPullDownRefresh()
+  },
+  lower() {
+    if (!this.data.isLast) {
+      this.getOrderList(this.data.lastId)
+    } else {
+      app.showInfo('没有更多')
+    }
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -94,7 +115,14 @@ Page({
     this.setData({
       userId: options.id
     })
-    this.getOrderList()
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          height: res.windowHeight
+        })
+      }
+    })
+    this.getOrderList(0)
   },
 
   /**
