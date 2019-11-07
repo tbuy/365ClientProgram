@@ -58,6 +58,8 @@ Page({
   },
   //获取广告位
   getAdPosition() {
+    wx.showNavigationBarLoading()
+    wx.showLoading()
     wx.request({
       url: apiPath.getAdPosition,
       method: 'get',
@@ -79,6 +81,10 @@ Page({
       },
       fail: (err) => {
         app.showInfo(res.data.message)
+      },
+      complete: () => {
+        wx.hideLoading()
+        wx.hideNavigationBarLoading()
       }
     })
   },

@@ -9,6 +9,8 @@ Page({
     contract:null
   },
   getContract(id){
+    wx.showNavigationBarLoading()
+    wx.showLoading()
     wx.request({
       url: apiPath.getContract,
       method: 'get',
@@ -29,6 +31,10 @@ Page({
       },
       fail: (err) => {
         console.log(111, err)
+      },
+      complete: () => {
+        wx.hideLoading()
+        wx.hideNavigationBarLoading()
       }
     })
   },

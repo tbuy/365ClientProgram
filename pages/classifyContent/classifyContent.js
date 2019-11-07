@@ -64,6 +64,8 @@ Page({
     })
   },
   getOrderList(lastId) {
+    wx.showLoading()
+    wx.showNavigationBarLoading()
     wx.request({
       url: apiPath.getCategoryDetail,
       method: 'get',
@@ -80,7 +82,6 @@ Page({
           let _data = res.data.data;
           this.setData({
             list: this.data.list.concat(_data.data),
-            lastId: _data.lastId,
             isLast: _data.isLast,
             imageFile: _data.files
           })
@@ -88,7 +89,12 @@ Page({
       },
       fail: (err) => {
         app.showInfo(res.data.message)
+      },
+      complete: () => {
+        wx.hideLoading()
+        wx.hideNavigationBarLoading()
       }
+
     })
   },
   lower() {

@@ -6,8 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tab:[
-      {
+    tab: [{
         id: 0,
         title: "全部",
         isHeightlight: true
@@ -30,7 +29,7 @@ Page({
     ],
     selectedId: 0,
     userId: 0,
-    list:[],
+    list: [],
     // 分页
     lastId: 0,
     isLast: true,
@@ -38,12 +37,12 @@ Page({
     height: '',
 
   },
-  select(e){
+  select(e) {
     let _tab = this.data.tab;
-    _tab.forEach(item=>{
-      if (item.id == e.currentTarget.dataset.id){
+    _tab.forEach(item => {
+      if (item.id == e.currentTarget.dataset.id) {
         item.isHeightlight = true;
-      }else{
+      } else {
         item.isHeightlight = false;
       }
     })
@@ -54,45 +53,49 @@ Page({
     this.getOrderList(0)
 
   },
-  getOrderList(lastId){
+  getOrderList(lastId) {
     wx.showNavigationBarLoading()
+    wx.showLoading()
 
-      wx.request({
-        url: apiPath.getOrderList,
-        method: 'get',
-        header: {
-          'Content-Type': 'application/json',
-          'accessToken': wx.getStorageSync('accessToken')
-        },
-        data: {
-          type: this.data.selectedId,
-          id: this.data.userId,
-          lastId: lastId,
-          pageNumber: this.data.pageNumber
-        },
-        success: (res) => {
-          if (res.data.code == 0) {
-            var _data = res.data.data
-            this.setData({
-              list: this.data.list.concat(_data.data),
-              isLast: _data.isLast,
-              lastId: _data.lastId
-            })
-          }
-          wx.hideNavigationBarLoading()
-        },
-        fail: (err) => {
-          app.showInfo(res.data.message)
-
+    wx.request({
+      url: apiPath.getOrderList,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+        'accessToken': wx.getStorageSync('accessToken')
+      },
+      data: {
+        type: this.data.selectedId,
+        id: this.data.userId,
+        lastId: lastId,
+        pageNumber: this.data.pageNumber
+      },
+      success: (res) => {
+        if (res.data.code == 0) {
+          var _data = res.data.data
+          this.setData({
+            list: this.data.list.concat(_data.data),
+            isLast: _data.isLast,
+            lastId: _data.lastId
+          })
         }
-      })
+      },
+      fail: (err) => {
+        app.showInfo(res.data.message)
+
+      },
+      complete: () => {
+        wx.hideLoading()
+        wx.hideNavigationBarLoading()
+      }
+    })
   },
-  goDetail(e){
+  goDetail(e) {
     wx.navigateTo({
       url: '/pages/myOrderDetail/myOrderDetail?id=' + e.currentTarget.dataset.id,
     })
   },
-  call(e){
+  call(e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone
     })
@@ -111,7 +114,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       userId: options.id,
       list: [],
@@ -132,49 +135,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

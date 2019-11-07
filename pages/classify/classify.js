@@ -12,7 +12,7 @@ Page({
   },
   getMenuList() {
     wx.showNavigationBarLoading()
-
+    wx.showLoading()
     wx.request({
       url: apiPath.getCategoryTree,
       method: 'get',
@@ -34,11 +34,14 @@ Page({
           this.setData({
             menuList: _menuList
           })
-          wx.hideNavigationBarLoading()
         }
       },
       fail: (err) => {
         app.showInfo(res.data.message)
+      },
+      complete: () => {
+        wx.hideLoading()
+        wx.hideNavigationBarLoading()
       }
     })
   },
