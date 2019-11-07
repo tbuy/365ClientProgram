@@ -171,7 +171,10 @@ Page({
     })
 
     this.setData({
-      id: options.id
+      id: options.id,
+      list: [],
+      lastId: 0,
+      isLast: false,
     })
 
     this.getOrderList(0)

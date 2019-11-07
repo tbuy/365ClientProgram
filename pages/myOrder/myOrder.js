@@ -113,7 +113,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userId: options.id
+      userId: options.id,
+      list: [],
+      lastId: 0,
+      isLast: false,
     })
     wx.getSystemInfo({
       success: (res) => {
@@ -122,6 +125,7 @@ Page({
         })
       }
     })
+
     this.getOrderList(0)
   },
 
