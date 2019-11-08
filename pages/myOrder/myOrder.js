@@ -48,7 +48,10 @@ Page({
     })
     this.setData({
       tab: _tab,
-      selectedId: e.currentTarget.dataset.id
+      selectedId: e.currentTarget.dataset.id,
+      list: [],
+      lastId: 0,
+      isLast: false,
     })
     this.getOrderList(0)
 
