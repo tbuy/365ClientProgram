@@ -1,3 +1,5 @@
+@import 'style/wxui.wxss';
+
 .container-p {
   padding: 20rpx;
   color: rgb(87, 87, 87);
