@@ -1,0 +1,7 @@
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: {{height}};">
+    <block wx:for="{{adBanner}}" wx:key="{{item.id}}">
+      <swiper-item style="height: {{height}};">
+        <image src="{{item.url}}" class="slide-image" bindtap="goAdPositionContent" data-item="{{item}}" style="height: {{height}};"/>
+      </swiper-item>
+    </block>
+  </swiper>

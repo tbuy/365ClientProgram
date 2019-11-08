@@ -1,16 +1,3 @@
-swiper {
-  width: 100%;
-  height: 320rpx;
-  border-radius: 10rpx;
-  overflow: hidden;
-}
-
-.slide-image {
-  width: 100%;
-  height: 320rpx;
-  border-radius: 10rpx;
-  background-color: rgb(243, 243, 243);
-}
 
 .nav {
   display: flex;

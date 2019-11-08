@@ -14,13 +14,7 @@ Page({
     //推荐广告位
     adRecommend1: [],
     adRecommend2: [],
-    //轮播点
-    indicatorDots: true,
-    autoplay: true,
-    //时间间隔
-    interval: 3000,
-    //滑动时长
-    duration: 400,
+
     videoContext: '',
     //导航
     navContent: [{
@@ -88,11 +82,7 @@ Page({
       }
     })
   },
-  goAdPositionContent(e) {
-    if (e.currentTarget.dataset.item) {
-      app.goAdPositionContent(e.currentTarget.dataset.item)
-    }
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
