@@ -44,7 +44,8 @@ Page({
       router: ''
     }
     ],
-    adPosition: null
+    adPosition: null,
+    videoContent:null
 
   },
   goItem(e) {
@@ -93,11 +94,35 @@ Page({
       app.goAdPositionContent(e.currentTarget.dataset.item)
     }
   },
+  getHomeVideo(){
+    wx.request({
+      url: apiPath.getHomeVideo,
+      method: 'get',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      success: (res) => {
+        console.log(res.data)
+        this.setData({
+          videoContent:{
+            src: res.data.data.video_src,
+            image: res.data.data.picture_url
+          }
+        })
+      },
+      fail: (err) => {
+        app.showInfo(res.data.message)
+      },
+      complete: () => {
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getAdPosition()
+    this.getHomeVideo()
   },
 
   /**

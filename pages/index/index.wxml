@@ -29,7 +29,7 @@
 
   <view class="videoRecommend">
       <view class="title">视频推荐</view>
-    <video id="myVideo" poster="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570731011450&di=5e2850bb705c92118053468b980ac946&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201412%2F27%2F20141227124805_KuZ2Y.jpeg" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+    <video id="myVideo" poster="{{videoContent.image}}" src="{{videoContent.src}}"
       controls></video>
   </view>
 </view>

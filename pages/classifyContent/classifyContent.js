@@ -25,7 +25,7 @@ Page({
     // 分页
     lastId: 0,
     isLast: true,
-    pageNumber: 15,
+    pageNumber: 5,
     //广告位
     adImage: [],
     height: '',
@@ -83,6 +83,7 @@ Page({
           this.setData({
             list: this.data.list.concat(_data.data),
             isLast: _data.isLast,
+            lastId: _data.lastId,
             imageFile: _data.files
           })
         }
