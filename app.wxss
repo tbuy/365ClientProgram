@@ -4,6 +4,7 @@
   padding: 20rpx;
   color: rgb(87, 87, 87);
 }
+
 .container {
   height: 100%;
   display: flex;
@@ -12,7 +13,7 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
 
 .public_button_big {
   width: 80%;
@@ -26,14 +27,15 @@
 }
 
 .public_avatar {
-    width: 100rpx;
+  width: 100rpx;
   height: 100rpx;
   border-radius: 50rpx;
 }
 
 /* 省略号 */
-.ellipsis{
-    display: -webkit-box;
+
+.ellipsis {
+  display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
@@ -41,63 +43,97 @@
   overflow: hidden;
 }
 
-
 /* 颜色 */
+
 .icon-color {
   color: #ccc;
 }
+
 /* 按钮颜色 */
+
 .theme_btn {
   background-color: #ff7832;
   color: #fff;
 }
+
 /* 主色背景 */
-.theme_bgColor1{
-    background-color: #ff6400;
+
+.theme_bgColor1 {
+  background-color: #ff6400;
 }
+
 /* 底色 */
+
 .theme_bgColor2 {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
+
 /* 互补色背景 */
+
 .theme_bgColor3 {
-    background-color: #342e1f;
+  background-color: #342e1f;
 }
+
 .theme_word_deep {
-    color: #342e1f;
+  color: #342e1f;
 }
+
 .theme_word_normal {
-    color: #888;
+  color: #888;
 }
+
 .theme_word_red {
-    color: #ff3200;
+  color: #ff3200;
 }
+
 .theme_wordSize_big {
-    font-size: 40rpx;
+  font-size: 40rpx;
 }
+
 .theme_wordSize_normal {
-    font-size: 36rpx;
+  font-size: 36rpx;
 }
+
 .theme_wordSize_small {
-    font-size: 28rpx;
+  font-size: 28rpx;
+}
+
+/* 主题色提交按钮 */
+.theme_form_button {
+  width: 100%;
+  border: 0 none;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  letter-spacing: 10rpx;
+  background-color: #ff7832;
+}
+.theme_form_button_disable {
+   background-color: #ccc;
 }
 
 /* 无数据 */
+
 .nodata {
   color: rgb(114, 113, 113);
   font-size: 34rpx;
   text-align: center;
   margin: 300rpx auto;
 }
+
 /* icon */
+
 @font-face {
-  font-family: 'iconfont';  /* project id 1357392 */
+  font-family: 'iconfont'; /* project id 1357392 */
   src: url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.eot');
   src: url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.svg#iconfont') format('svg');
+         url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.woff2') format('woff2'),
+         url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.woff') format('woff'),
+         url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_1357392_2mi4ap68tvc.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -119,30 +155,39 @@
 .icon-enter:before {
   content: "\e6f8";
 }
+
 .icon-order:before {
   content: "\e626";
 }
+
 .icon-resume:before {
   content: "\e625";
 }
+
 .icon-customer:before {
   content: "\e63c";
 }
+
 .icon-about:before {
   content: "\e602";
 }
+
 .icon-opinion:before {
   content: "\e63d";
 }
+
 .icon-home1:before {
   content: "\e8cc";
 }
+
 .icon-home2:before {
   content: "\e8d2";
 }
+
 .icon-home3:before {
   content: "\e8d0";
 }
+
 .icon-home4:before {
   content: "\e8c6";
 }

@@ -37,24 +37,13 @@ Page({
     height: '',
 
   },
-  select(e) {
-    let _tab = this.data.tab;
-    _tab.forEach(item => {
-      if (item.id == e.currentTarget.dataset.id) {
-        item.isHeightlight = true;
-      } else {
-        item.isHeightlight = false;
-      }
-    })
-    this.setData({
-      tab: _tab,
-      selectedId: e.currentTarget.dataset.id,
-      list: [],
-      lastId: 0,
-      isLast: false,
-    })
-    this.getOrderList(0)
+  onMyEvent(e){
+    console.log(66,e)
 
+  },
+  selected(e) {
+    console.log(11)
+    this.getOrderList(0)
   },
   getOrderList(lastId) {
     wx.showNavigationBarLoading()

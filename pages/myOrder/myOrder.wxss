@@ -1,25 +1,6 @@
 /* pages/myOrder/myOrder.wxss */
 
-.tab {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20rpx;
-  box-shadow: 5rpx 5rpx 10rpx #f5f5f5;
-  color: rgb(87, 87, 87);
-}
 
-.tab-item {
-  width: 160rpx;
-  text-align: center;
-  line-height: 60rpx;
-  box-sizing: border-box;
-  font-size: 32rpx;
-}
-
-.tab-item-active {
-  color: #ff7832;
-  border-bottom: 6rpx solid #ff7832;
-}
 
 .list {
   font-size: 30rpx;

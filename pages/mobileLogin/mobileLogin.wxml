@@ -12,7 +12,7 @@
       <image src="/images/captcha.png"></image>
       <input name="captcha" placeholder="请输入验证码" maxlength="6" type="text" placeholder-style="color:#ccc" value="{{captcha}}" bindinput='captchaInput' />
     </view>
-    <button class='loginBtn theme_btn}}' form-type="submit">登录</button>
+    <button class="theme_form_button {{phone.length > 0 && captcha.length > 0 ?'':'theme_form_button_disable'}}" form-type="submit" style="margin: 160rpx auto;">登录</button>
   </form>
 
 </view>

@@ -40,6 +40,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 6,
 			"list": [
@@ -90,6 +94,12 @@
 					"name": "成功页",
 					"pathName": "pages/success/success",
 					"query": "id=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登陆",
+					"pathName": "pages/mobileLogin/mobileLogin",
 					"scene": null
 				}
 			]

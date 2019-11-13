@@ -1,6 +1,6 @@
 const apiPath = require('./config/apiPath.js');
 App({
-  onLaunch: function () {
+  onLaunch: function() {
 
   },
   //消息框
@@ -14,7 +14,7 @@ App({
     })
   },
   //模态框
-  showModal: (content = "消息框", confirm = () => { }, cancel = () => { }) => {
+  showModal: (content = "消息框", confirm = () => {}, cancel = () => {}) => {
     wx.showModal({
       content: content,
       success(res) {
@@ -41,6 +41,7 @@ App({
 
   //获取用户授权信息
   globalGetUserInfo(e) {
+    console.log(e)
     this.globalData.detail = e.detail
   },
   /**
@@ -49,12 +50,11 @@ App({
    * captcha 验证码
    * callback 成功的回调函数
    */
-  globalLogin(phone, captcha, callback = () => { }) {
+  globalLogin(phone, captcha, callback = () => {}) {
+    this.showLoading()
     wx.login({
       success: (loginRes) => {
-        console.log('loginRes', loginRes)
         if (loginRes.code) {
-
           /**
            * 服务器登录接口
            * phone 手机号
@@ -79,101 +79,76 @@ App({
             },
             success: (res) => {
               if (res.data.code == 0) {
-                wx.setStorageSync('accessToken', res.data.data.access_token);
-                wx.setStorageSync('userId', res.data.data.id);
-                wx.setStorageSync('isLogin', true);
+                this.globalData.accessToken = res.data.data.access_token
+                wx.setStorage({
+                  key: "accessToken",
+                  data: res.data.data.access_token
+                })
+                wx.setStorage({
+                  key: "userId",
+                  data: res.data.data.id
+                })
+                wx.setStorage({
+                  key: "isLogin",
+                  data: true
+                })
                 callback();
               }
-
               this.showInfo(res.data.message)
             },
             fail: (err) => {
               this.showInfo('登录失败');
-              console.log(111, err)
             }
           })
 
         } else {
           //获取code失败
           this.showInfo('登录失败');
-          console.log(333, err)
         }
       },
       fail: (err) => {
         this.showInfo('登录失败');
-        console.log(444, err)
+      },
+      complete: () => {
+        this.hideLoading()
       }
     })
   },
   //检查是否登录 登录返回ture 未登录返回false
   checkLogin() {
-    if (wx.getStorageSync('accessToken')) {
-      // 检查 session_key 是否过期
-      wx.checkSession({
-        // session_key 未过期
-        success: () => {
-            wx.setStorageSync('isLogin', true);
-            console.log('已登录')
-        },
-        // session_key 过期
-        fail: () => {
-          this.showInfo('缓存信息缺失');
-          console.log(2)
-          wx.setStorageSync('isLogin', false);
-        }
-      });
-    } else {
-      console.log(3)
-      wx.setStorageSync('isLogin', false);
+    var _accessToken = this.globalData.accessToken;
+    if (!_accessToken) {
+      _accessToken = wx.getStorageSync('accessToken')
+      if (_accessToken) {
+        this.globalData.accessToken = _accessToken
+      } else {
+        wx.setStorage({
+          key: "isLogin",
+          data: false
+        })
+        return
+      }
     }
 
-  },
-  //检查是否开启权限
-  checkUserInfoPermission() {
-    console.log(99999)
-    //获取用户的当前设置
-    wx.getSetting({
-      success: (res) => {
-        if (!res.authSetting['scope.userInfo']) {
-          wx.openSetting({
-            success: (authSetting) => {
-              console.log(22, authSetting)
-            }
-          });
-        }
+    // 检查 session_key 是否过期
+    wx.checkSession({
+      // session_key 未过期
+      success: () => {
+        wx.setStorage({
+          key: "isLogin",
+          data: true
+        })
       },
-      fail: (err) => {
-        console.log(33, err);
+      // session_key 过期
+      fail: () => {
+        wx.setStorage({
+          key: "isLogin",
+          data: false
+        })
+        wx.clearStorageSync()
       }
     });
 
-  },
-  //获取信息
-  getUser(){
-    wx.request({
-      url: apiPath.getUser,
-      method: 'get',
-      header: {
-        'Content-Type': 'application/json',
-        'accessToken': wx.getStorageSync('accessToken')
-      },
-      data: {
-        id: this.data.userId,
-      },
-      success: (res) => {
-        if (res.data.code == 0) {
-          var _data = res.data.data
-          this.setData({
-            userName: _data.name || _data.phone,
-            icon: _data.icon,
-            userId: _data.id
-          })
-        }
-      },
-      fail: (err) => {
-        console.log(111, err)
-      }
-    })
   },
   //广告位跳转
   goAdPositionContent(ad) {
@@ -191,6 +166,7 @@ App({
   globalData: {
     //权限详情
     detail: null,
+    accessToken: null,
   }
 
 })

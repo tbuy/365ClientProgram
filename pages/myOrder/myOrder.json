@@ -3,5 +3,8 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "订单列表",
   "navigationBarTextStyle": "black",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+    "usingComponents": {
+      "TabMenu": "/components/tabMenu/tabMenu"
+    }
 }

@@ -10,18 +10,20 @@ Page({
     isShowTime: false,
   },
   formSubmit(e) {
-    let regPhone = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
-    if (!regPhone.test(e.detail.value.phone)) {
-      app.showInfo('请输入正确手机号')
-    } else if (e.detail.value.captcha == '' || e.detail.value.captcha < 6) {
-      app.showInfo('请输入正确验证码')
-    } else {
-      app.globalLogin(e.detail.value.phone, e.detail.value.captcha, () => {
-        app.showInfo('登录成功')
-        wx.reLaunch({
-          url: "/pages/user/user"
+    if (this.data.phone.length > 0 && this.data.captcha.length > 0) {
+      let regPhone = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+      if (!regPhone.test(e.detail.value.phone)) {
+        app.showInfo('请输入正确手机号')
+      } else if (e.detail.value.captcha == '' || e.detail.value.captcha < 6) {
+        app.showInfo('请输入正确验证码')
+      } else {
+        app.globalLogin(e.detail.value.phone, e.detail.value.captcha, () => {
+          app.showInfo('登录成功')
+          wx.reLaunch({
+            url: "/pages/user/user"
+          })
         })
-      })
+      }
     }
   },
   getCode() {
@@ -60,7 +62,7 @@ Page({
     this.setData({
       phone: e.detail.value
     })
-    if(this.data.phone > 0 && this.data.captcha > 0){
+    if (this.data.phone > 0 && this.data.captcha > 0) {
       this.setData({
         isHeightlight: true
       })
