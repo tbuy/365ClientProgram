@@ -1,9 +1,5 @@
 <view>
-  <view class="tab theme_wordSize_normal">
-    <block wx:for="{{tab}}" wx:key="{{item.id}}">
-      <view class="tab-item {{item.isSelected?'item-active':''}}" bindtap="select" data-index="{{index}}">{{item.name}}</view>
-    </block>
-  </view>
+  <TabMenu menuList="{{tab}}" bindselected="selected" width="350rpx"></TabMenu>
   <!-- 列表 -->
   <view class="container-p" wx:if="{{isShowSelect}}">
     <scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>

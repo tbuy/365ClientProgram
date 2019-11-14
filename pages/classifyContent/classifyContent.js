@@ -9,18 +9,13 @@ Page({
   data: {
     //导航
     tab: [{
-      name: '列表',
+      title: '列表',
       id: 1,
-      isSelected: true
     },
     {
-      name: '体验服务',
+      title: '体验服务',
       id: 2,
-      isSelected: false
-    }
-    ],
-    //选中模块
-    isShowSelect: true,
+    }],
     list: [],
     // 分页
     lastId: 0,
@@ -36,31 +31,14 @@ Page({
     //是否显示表单
     isShowForm: false,
     //体验服务接口
-    imageFile: []
+    imageFile: [],
+    selectedId: 0,
+    isShowSelect: true
   },
-  select(e) {
-    if (e.currentTarget.dataset.index == 0) {
-      this.setData({
-        isShowSelect: true
-      })
-
-    } else {
-      this.setData({
-        isShowSelect: false
-      })
-    }
-    let _tab = this.data.tab
-    _tab.map((item, index) => {
-      if (index == e.currentTarget.dataset.index) {
-        item.isSelected = true
-      } else {
-        item.isSelected = false
-      }
-      return item
-    })
-
+  selected(e) {
     this.setData({
-      tab: _tab
+      selectedId: e.detail.selectId,
+      isShowSelect: e.detail.selectId == 1
     })
   },
   getOrderList(lastId) {
@@ -82,6 +60,7 @@ Page({
           let _data = res.data.data;
           this.setData({
             list: this.data.list.concat(_data.data),
+            lastId: _data.lastId,
             isLast: _data.isLast,
             imageFile: _data.files
           })

@@ -1,19 +1,4 @@
 
-.tab {
-  display: flex;
-  justify-content: space-between;
-  line-height: 80rpx;
-  margin-bottom: 10rpx;
-}
-.tab-item {
-  width: 50%;
-  text-align: center;
-}
-.item-active {
-  color: #ff7832;
-  border-bottom: 5rpx solid #ff7832;
-}
-
 .ad-image {
   width: 100%;
   height: 200rpx;

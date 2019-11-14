@@ -9,22 +9,18 @@ Page({
     tab: [{
         id: 0,
         title: "全部",
-        isHeightlight: true
       },
       {
         id: 2,
         title: "已签约",
-        isHeightlight: false
       },
       {
         id: 3,
         title: "售后匹配中",
-        isHeightlight: false
       },
       {
         id: 4,
         title: "已终止",
-        isHeightlight: false
       },
     ],
     selectedId: 0,
@@ -37,12 +33,10 @@ Page({
     height: '',
 
   },
-  onMyEvent(e){
-    console.log(66,e)
-
-  },
   selected(e) {
-    console.log(11)
+    this.setData({
+      selectedId: e.detail.selectId
+    })
     this.getOrderList(0)
   },
   getOrderList(lastId) {
@@ -124,52 +118,4 @@ Page({
     this.getOrderList(0)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

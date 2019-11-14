@@ -78,5 +78,6 @@ Page({
       })
     }
   },
-
+  onLoad: function (options) {
+  },
 })

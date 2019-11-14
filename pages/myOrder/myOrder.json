@@ -4,7 +4,7 @@
   "navigationBarTitleText": "订单列表",
   "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true,
-    "usingComponents": {
-      "TabMenu": "/components/tabMenu/tabMenu"
-    }
+  "usingComponents": {
+    "TabMenu": "/components/tabMenu/tabMenu"
+  }
 }

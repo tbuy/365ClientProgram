@@ -7,7 +7,6 @@
 }
 
 .menu-item {
-  width: 160rpx;
   text-align: center;
   line-height: 60rpx;
   box-sizing: border-box;
