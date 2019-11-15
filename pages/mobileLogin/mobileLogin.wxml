@@ -1,5 +1,5 @@
 <view class="wrap">
-  <!-- <form bindsubmit="formSubmit">
+  <form bindsubmit="formSubmit">
     <view class='input'>
       <image src="/images/phone.png"></image>
       <input name="phone" placeholder="请输入手机号" maxlength="11" type="text" placeholder-style="color:#ccc" value="{{phone}}" bindinput='phoneInput' style='width: 320rpx;' />
@@ -13,6 +13,6 @@
       <input name="captcha" placeholder="请输入验证码" maxlength="6" type="text" placeholder-style="color:#ccc" value="{{captcha}}" bindinput='captchaInput' />
     </view>
     <button class="theme_form_button {{phone.length > 0 && captcha.length > 0 ?'':'theme_form_button_disable'}}" form-type="submit" style="margin: 160rpx auto;">登录</button>
-  </form> -->
-  <map latitude="40.060148" longitude="116.343219" scale="5"></map>
+  </form>
 </view>
+

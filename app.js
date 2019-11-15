@@ -150,6 +150,21 @@ App({
     });
 
   },
+
+  //获取用户微信信息
+  getWxUserInfo(){
+    wx.getSetting({
+      success: res=>{
+        if(res.authSetting['scope.userInfo']){
+          wx.getUserInfo({
+            success: data=>{
+              console.log(data.userInfo)
+            }
+          })
+        }
+      }
+    })
+  },
   //广告位跳转
   goAdPositionContent(ad) {
     if (ad.jump_type == 1) {

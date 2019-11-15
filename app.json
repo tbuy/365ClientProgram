@@ -11,7 +11,8 @@
     "pages/success/success",
     "pages/myContract/myContract",
     "pages/activity/activity",
-    "pages/contractImage/contractImage"
+    "pages/contractImage/contractImage",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -45,10 +46,15 @@
       }
     ]
   },
-    "networkTimeout": {
-      "request": 10000,
-      "downloadFile": 10000
-    },
-    "debug": true,
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "debug": true,
   "sitemapLocation": "sitemap.json"
 }
