@@ -32,6 +32,14 @@ npm build:my
 
 # 生成 bundle 分析报告
 npm run build --report
-```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# 注意
+
+1. 小程序里所有的 BOM／DOM 都不能用，也就是说 v-html 指令不能用
+2. {{}}无法支持复杂的 JavaScript 表达式
+3. wxml 不支持过滤器
+4. 不支持在组件上使用 Class 与 Style 绑定
+5. 不支持在组件引用时，在组件上定义 click 等原生事件、v-show（可用 v-if 代替）和 class style 等样式属性
+6.
+
+
