@@ -1,5 +1,8 @@
 <template>
-<div>个人中心</div>
+<div class="container">
+    <div class="header">name</div>
+    <div class="list">list</div>
+</div>
 </template>
 
 <script>
@@ -22,6 +25,18 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.header {
+    width: 100%;
+    height: 300rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+}
+.list {
+    width: 100%;
+    height: 500rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-top: 30rpx;
+}
 </style>

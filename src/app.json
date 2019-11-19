@@ -27,7 +27,7 @@
             "iconPath": "static/tabs/un_menu.png",
             "selectedIconPath": "static/tabs/menu.png"
         }, {
-            "text": "个人中心",
+            "text": "我的",
             "pagePath": "pages/user/main",
             "iconPath": "static/tabs/un_user.png",
             "selectedIconPath": "static/tabs/user.png"
@@ -46,7 +46,7 @@
                 "selectedIconPath": "static/tabs/menu.png"
             },
             {
-                "text": "个人中心",
+                "text": "我的",
                 "pagePath": "pages/user/main",
                 "iconPath": "static/tabs/un_useruser.png",
                 "selectedIconPath": "static/tabs/user.png"

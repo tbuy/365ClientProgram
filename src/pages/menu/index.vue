@@ -1,6 +1,11 @@
 <template>
-<div>
-    分类
+<div class="menu">
+    <div class="left-menu">
+        左边
+    </div>
+    <div class="right-menu">
+        右边
+    </div>
 </div>
 </template>
 
@@ -25,6 +30,18 @@ export default {
 }
 </script>
 
-<style>
-
+<style scope>
+.menu {
+    display: flex;
+    width: 100%;
+    background-color: pink;
+}
+.left-menu {
+    width: 25%;
+    background-color: red;
+}
+.right-menu {
+    width: 75%;
+    background-color: blue;
+}
 </style>
