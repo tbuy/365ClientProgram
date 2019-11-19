@@ -1,8 +1,0 @@
-<view class="container-p">
-  <image src="https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640" class="image" />
-  <view class="title theme_wordSize_normal">欢迎体验365家政保姆服务</view>
-  <form bindsubmit="formSubmit">
-    <input name="phone" placeholder="请输入您的手机号" maxlength="11" type="text" placeholder-style="color:#ccc" value="{{phone}}" bindinput='phoneInput' />
-    <button class='public_button_big theme_btn button' form-type="submit">立即预约</button>
-  </form>
-</view>
