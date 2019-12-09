@@ -1,2 +1,4 @@
 .history/
 .design/
+node_modules/
+dist/
