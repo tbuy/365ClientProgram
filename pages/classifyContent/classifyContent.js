@@ -25,7 +25,7 @@ Page({
     // 分页
     lastId: 0,
     isLast: true,
-    pageNumber: 5,
+    pageNumber: 15,
     //广告位
     adImage: [],
     height: '',
