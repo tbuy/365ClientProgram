@@ -80,9 +80,16 @@
 				},
 				{
 					"id": -1,
-					"name": "分类",
+					"name": "分类详情",
 					"pathName": "pages/classifyContent/classifyContent",
 					"query": "id=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/classify/classify",
+					"query": "",
 					"scene": null
 				},
 				{
